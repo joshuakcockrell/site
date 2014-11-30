@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Boxes</title>
+		<title>Home</title>
 		<meta name="description" content="">
 		<meta name="viewpoint" content="width=device-width, initial-scale=1">
 		<meta name="description" content="This is the description rite here.">
@@ -17,10 +17,10 @@
 	<body>
 
 		<ul class="navigation">
-  			<li><a href="#">Home</a></li>
+  			<li><a href="index.html">Home</a></li>
   			<li><a href="#">About</a></li>
-  			<li><a href="#">Colors</a></li>
-  			<li><a href="#">Boxes</a></li>
+  			<li><a href="colors.html">Colors</a></li>
+  			<li><a href="boxes.html">Boxes</a></li>
   			<li><a href="#">Projects</a></li>
   			<li><a href="#">Contact</a></li>
 		</ul>
@@ -28,10 +28,8 @@
 		<div id="section">
 
 			<h2>
-				Boxes
+				Home
 			</h2>
-
-			<canvas id='canvas' oncontextmenu='return false;'></canvas>
 
 			<p>
 				Welcome to the best website in the world.
@@ -41,45 +39,6 @@
 
 		</div> 
 
-		<!-- SHADERS -->
-		<!-- SHADERS -->
-		<!-- SHADERS -->
-
-		<!-- Vertex Shader -->
-
-        <script id="vertex-shader" type="x-shader/x-vertex">
-			attribute vec2 a_position;
-			uniform vec2 u_resolution;
-			void main() {
-				// convert the rectangle from pixels to 0.0 to 1.0
-				vec2 zeroToOne = a_position / u_resolution;
-
-				// convert from 0->1 to 0->2
-				vec2 zeroToTwo = zeroToOne * 2.0;
-
-				gl_Position = vec4(zeroToTwo*2.0 - 1.0, 0, 1); //ofset our positions
-			}
-		</script>
-
-        <!-- Fragment Shader -->
-        <script id='fxxragment-shader' type='x-shader/x-vertex'>
-            void main(){
-
-                gl_FragColor = vec4(1, 0, 0, 0.5);
-            }
-        </script>
-
-        <script id="fragment-shader" type="x-shader/x-fragment">
-			precision mediump float;
-			uniform vec4 u_color;
-			 
-			void main() {
-			   gl_FragColor = u_color;
-			}
-		</script>
-
-
-        <script src="js/boxes.js"></script>
 
 	</body>
 </html>
