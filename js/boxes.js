@@ -76,9 +76,14 @@ function box(){
     this.pos = [200,110];
     this.height = 10;
     this.width = 10;
-    this.speed = 0.9;
+    this.speed = 2.0;
     this.velocity = [Math.random() * 2.0 - 1.0, Math.random() * 2.0 - 1.0];
-    this.color = [Math.random(), Math.random(), Math.random(), 1];
+    this.color = [Math.random(), Math.random(), Math.random(), 0.7];
+
+    this.points = new Float32Array([this.pos[0], this.pos[1],
+                                    this.pos[0], this.pos[1]+this.height,
+                                    this.pos[0]+this.width, this.pos[1]+this.height,
+                                    this.pos[0]+this.width, this.pos[1]])
 
     this.getPoints = function(){
         var points = [this.pos[0], this.pos[1],
