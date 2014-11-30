@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Colors</title>
+		<meta name="description" content="">
+		<meta name="viewpoint" content="width=device-width, initial-scale=1">
+		<meta name="description" content="This is the description rite here.">
+
+		<link rel="stylesheet" href="css/main.css">
+
+	</head>
+	<style>
+		body {background-color:#3E474A;}
+	</style>
+
+	<!-- Body -->
+	<body>
+
+		<ul class="navigation">
+  			<li><a href="#">Home</a></li>
+  			<li><a href="#">About</a></li>
+  			<li><a href="#">Colors</a></li>
+  			<li><a href="#">Boxes</a></li>
+  			<li><a href="#">Projects</a></li>
+  			<li><a href="#">Contact</a></li>
+		</ul>
+
+		<div id="section">
+
+			<h2>
+				Colors
+			</h2>
+
+			<canvas id='canvas' oncontextmenu='return false;'></canvas>
+
+			<p>
+				Welcome to the best website in the world.
+				<br>
+				<br>
+			</p>
+
+		</div> 
+
+		<!-- SHADERS -->
+		<!-- SHADERS -->
+		<!-- SHADERS -->
+
+		<!-- Vertex Shader -->
+		<script id='vertex-shader' type='x-shader/x-vertex'>
+            attribute vec2 a_position;
+            varying vec2 v_uv; //coming through the graphics card 
+            void main() {
+                gl_Position = vec4(a_position*2.0 - 1.0, 0, 1); //ofset our positions
+                v_uv = a_position;
+            }
+        </script>
+
+        <!-- Fragment Shader -->
+        <script id='fragment-shader' type='x-shader/x-vertex'>
+            precision mediump float;
+
+            varying vec2 v_uv;
+
+            uniform float u_time;
+
+            float modulate(float x){
+                return sin(x)*0.5+0.5;
+            }
+            void main(){
+
+
+                gl_FragColor = vec4(v_uv.x*modulate(u_time*0.3), v_uv.y*modulate(u_time*0.4), modulate(u_time*0.5), 1);
+            }
+        </script>
+
+        <script src="js/main.js"></script>
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
