@@ -19,6 +19,7 @@
 
         .navigation a {
             text-decoration: none;
+            font-family:arial;
             display: block;
             padding: 2em;
             color: #D5F5FF;
