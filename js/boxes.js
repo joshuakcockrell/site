@@ -4,7 +4,7 @@ var canvas, gl, program;
 
 
 var boxes = [];
-for (var x=0; x<2000; x++)
+for (var x=0; x<1000; x++)
 {
     var newBox = new box();
     boxes.push(newBox);
