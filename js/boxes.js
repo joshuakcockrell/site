@@ -4,7 +4,7 @@ var canvas, gl, program;
 
 
 var boxes = [];
-for (var x=0; x<1000; x++)
+for (var x=0; x<2000; x++)
 {
     var newBox = new box();
     boxes.push(newBox);
@@ -85,13 +85,20 @@ function box(){
                                     this.pos[0]+this.width, this.pos[1]+this.height,
                                     this.pos[0]+this.width, this.pos[1]])
 
-    this.getPoints = function(){
-        var points = [this.pos[0], this.pos[1],
-                        this.pos[0], this.pos[1]+this.height,
-                        this.pos[0]+this.width, this.pos[1]+this.height,
-                        this.pos[0]+this.width, this.pos[1]]
-        return points;
+    this.updatePoints = function(){
+        this.points[0] = this.pos[0];
+        this.points[1] = this.pos[1];
+
+        this.points[2] = this.pos[0];
+        this.points[3] = this.pos[1]+this.height;
+
+        this.points[4] = this.pos[0]+this.width;
+        this.points[5] = this.pos[1]+this.height;
+
+        this.points[6] = this.pos[0]+this.width;
+        this.points[7] = this.pos[1];
     }
+
     this.move = function(){
         this.pos[0] += this.velocity[0] * this.speed;
         if ( (this.pos[0]+this.width > canvas.width / 2) || (this.pos[0] < 0) ){
@@ -101,6 +108,7 @@ function box(){
         if ( (this.pos[1]+this.height > canvas.height / 2) || (this.pos[1] < 0) ){
             this.velocity[1] *= -1;
         }
+        this.updatePoints();
     }
 }
 
@@ -109,13 +117,8 @@ function animate(){
     for (var b=0; b<boxes.length; b++)
     {
         var box = boxes[b];
-        var p = box.getPoints();
 
-        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array( //converts it to a c array
-            [p[0], p[1],
-             p[2], p[3],
-             p[4], p[5],
-             p[6], p[7]]), gl.STATIC_DRAW); //can't pass it a js array, we gotta change it.
+        gl.bufferData(gl.ARRAY_BUFFER, box.points, gl.STATIC_DRAW); //can't pass it a js array, we gotta change it.
 
         var colorLocation = gl.getUniformLocation(program, "u_color");
         gl.uniform4f(colorLocation, box.color[0], box.color[1], 
