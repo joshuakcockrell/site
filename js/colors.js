@@ -21,7 +21,7 @@ function main(){
         console.log(canvas.width);
 		canvas.width = window.innerWidth - 200;
         //canvas.width;
-		canvas.height = window.innerHeight + 100;
+		canvas.height = window.innerHeight;
 		gl.viewport(0, 0, canvas.width, canvas.height);
 
 	}
