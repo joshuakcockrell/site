@@ -1,61 +1,62 @@
 <!-- Style -->
 <style>
-    body {
-        background-color:#3E474A;
-        }
+    #body
+    {
+    background-color:#3E474A;
+    }
 
+    .navigation {
+        list-style: none;
+        margin: 0; 
+        background: #84989E;
+
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+
+        -webkit-flex-flow: row wrap;
+        justify-content: flex-end;
+    }
+
+    .navigation a {
+        text-decoration: none;
+        font-family:arial;
+        display: block;
+        padding: 2em;
+        color: #D5F5FF;
+    }
+
+    .navigation a:hover {
+        background: #606E73;
+    }
+
+    @media all and (max-width: 800px) {
         .navigation {
-            list-style: none;
-            margin: 0; 
-            background: #84989E;
+            justify-content: space-around;
+        }
+    }
 
-            display: -webkit-box;
-            display: -moz-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-
-            -webkit-flex-flow: row wrap;
-            justify-content: flex-end;
+    @media all and (max-width: 500px) {
+        .navigation {
+            -webkit-flex-flow: column wrap;
+            flex-flow: column wrap;
+            padding: 0;
+        }
+  
+        .navigation a { 
+            text-align: center; 
+            padding: 5px;
+            border-top: 1px solid rgba(255,255,255,0.3); 
+            border-bottom: 1px solid rgba(0,0,0,0.1); 
         }
 
-        .navigation a {
-            text-decoration: none;
-            font-family:arial;
-            display: block;
-            padding: 2em;
-            color: #D5F5FF;
+  
+        .navigation li:last-of-type a {
+            border-bottom: none;
         }
-
-        .navigation a:hover {
-            background: #606E73;
-        }
-
-        @media all and (max-width: 800px) {
-            .navigation {
-                justify-content: space-around;
-            }
-        }
-
-        @media all and (max-width: 600px) {
-            .navigation {
-                -webkit-flex-flow: column wrap;
-                flex-flow: column wrap;
-                padding: 0;
-            }
-      
-            .navigation a { 
-                text-align: center; 
-                padding: 10px;
-                border-top: 1px solid rgba(255,255,255,0.3); 
-                border-bottom: 1px solid rgba(0,0,0,0.1); 
-            }
-
-      
-            .navigation li:last-of-type a {
-                border-bottom: none;
-            }
-        }
+    }
 
 
     #section {
@@ -63,8 +64,8 @@
         color:#1A464A;
         text-align:center;
         font-family:arial;
-        margin:40px;
-        padding:40px;
+        margin:2em;
+        padding:2em;
         font-size:150%;
     }
 

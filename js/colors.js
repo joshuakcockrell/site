@@ -15,13 +15,12 @@ function main(){
 		alert('No WebGL support!');
 	}
 
+    //this function is called during resizes
 	window.onresize = function(){
         canvas = document.getElementById('canvas');
-		//this function is called during resizes
-        console.log(canvas.width);
 		canvas.width = window.innerWidth - 200;
-        //canvas.width;
-		canvas.height = window.innerHeight;
+		canvas.height = canvas.width / 2;
+
 		gl.viewport(0, 0, canvas.width, canvas.height);
 
 	}

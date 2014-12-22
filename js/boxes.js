@@ -2,6 +2,9 @@
 
 var canvas, gl, program;
 
+var s_width = 1000;
+var s_height = 1000;
+
 
 var boxes = [];
 for (var x=0; x<500; x++)
@@ -24,12 +27,16 @@ function main(){
 		alert('No WebGL support!');
 	}
 
-    canvas.width = 800;
-    canvas.height = 450;
-    gl.viewport(0, 0, canvas.width, canvas.height);
+    //this function is called during resizes
+    window.onresize = function(){
+        canvas = document.getElementById('canvas');
+        canvas.width = window.innerWidth - 200;
+        //canvas.width;
+        canvas.height = window.innerHeight / 2;
+        gl.viewport(0, 0, canvas.width, canvas.height);
 
-
-
+    }
+    window.onresize();
 
     program = gl.createProgram();
 
@@ -73,7 +80,8 @@ function main(){
 }
 
 function box(){
-    this.pos = [200,110];
+    canvas = document.getElementById('canvas');
+    this.pos = [(canvas.width / 2) + 50, canvas.height / 2];
     this.height = 10;
     this.width = 10;
     this.speed = 2.0;
