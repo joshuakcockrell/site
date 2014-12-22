@@ -16,9 +16,12 @@ function main(){
 	}
 
 	window.onresize = function(){
+        canvas = document.getElementById('canvas');
 		//this function is called during resizes
-		canvas.width = 800;
-		canvas.height = 450;
+        console.log(canvas.width);
+		canvas.width = window.innerWidth - 200;
+        //canvas.width;
+		canvas.height = window.innerHeight + 100;
 		gl.viewport(0, 0, canvas.width, canvas.height);
 
 	}

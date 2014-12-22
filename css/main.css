@@ -1,6 +1,8 @@
 <!-- Style -->
 <style>
-    body {background-color:#3E474A;}
+    body {
+        background-color:#3E474A;
+        }
 
         .navigation {
             list-style: none;
