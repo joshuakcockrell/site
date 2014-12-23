@@ -32,7 +32,7 @@ function main(){
         canvas = document.getElementById('canvas');
         canvas.width = window.innerWidth - 200;
         //canvas.width;
-        canvas.height = window.innerHeight / 2;
+        canvas.height = canvas.width * .562;
         gl.viewport(0, 0, canvas.width, canvas.height);
 
     }

@@ -18,8 +18,8 @@ function main(){
     //this function is called during resizes
 	window.onresize = function(){
         canvas = document.getElementById('canvas');
-		canvas.width = window.innerWidth - 200;
-		canvas.height = canvas.width / 2;
+		canvas.width = window.innerWidth;
+		canvas.height = canvas.width * 0.562;
 
 		gl.viewport(0, 0, canvas.width, canvas.height);
 
