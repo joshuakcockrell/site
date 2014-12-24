@@ -1,24 +1,8 @@
 
 body
 {
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
     background-color:#283772;
     margin:0;
-    padding:0;
-    border:0;
-    outline:0;
-    vertical-align:baseline;
-}
-
-ul
-{
-    -webkit-margin-before: 0em;
-    -webkit-margin-after: 0em;
-    -webkit-padding-start: 0px;
-    padding: 0;
 }
 
 .navigation {
