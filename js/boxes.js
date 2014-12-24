@@ -104,13 +104,13 @@ function box(){
 
     this.move = function(){
         this.pos[0] += this.velocity[0] * this.speed;
-        if ( (this.pos[0]+this.width > canvas.width / 2) || (this.pos[0] < 0) ){
-            this.velocity[0] *= -1;
-        }
-        this.pos[1] += this.velocity[1] * this.speed;
-        if ( (this.pos[1]+this.height > canvas.height / 2) || (this.pos[1] < 0) ){
-            this.velocity[1] *= -1;
-        }
+        // if ( (this.pos[0]+this.width > canvas.width / 2) || (this.pos[0] < 0) ){
+        //     this.velocity[0] *= -1;
+        // }
+        // this.pos[1] += this.velocity[1] * this.speed;
+        // if ( (this.pos[1]+this.height > canvas.height / 2) || (this.pos[1] < 0) ){
+        //     this.velocity[1] *= -1;
+        // }
         this.updatePoints();
     }
 }
