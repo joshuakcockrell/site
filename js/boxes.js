@@ -18,7 +18,7 @@ animate();
 console.log('Started..');
 
 function load_boxes(){
-    for (var x=0; x<1000; x++)
+    for (var x=0; x<6000; x++)
     {
         var newBox = new box();
         boxes.push(newBox);
