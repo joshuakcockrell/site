@@ -119,7 +119,6 @@ function box(){
 function animate(){
 
     var box;
-    var colorLocation;
     for (var b=0; b<boxes.length; b++)
     {
         box = boxes[b];
@@ -127,9 +126,9 @@ function animate(){
         //can't pass it a js array, we gotta change it.
         gl.bufferData(gl.ARRAY_BUFFER, box.points, gl.STATIC_DRAW); 
 
-        colorLocation = gl.getUniformLocation(program, "u_color");
-        gl.uniform4f(colorLocation, box.color[0], box.color[1], 
-                                    box.color[2], box.color[3]);
+        gl.uniform4f(gl.getUniformLocation(program, "u_color"),
+            box.color[0], box.color[1], 
+            box.color[2], box.color[3]);
         gl.drawArrays(gl.TRIANGLE_FAN, 0, 4) //4 total arrays
 
         box.move();
