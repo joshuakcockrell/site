@@ -1,39 +1,44 @@
 (function(){
 
 var canvas, gl, program;
+canvas = document.getElementById('canvas');
 
 var s_width = 1000;
 var s_height = 1000;
 
+var resolution;
 
 var boxes = [];
-for (var x=0; x<500; x++)
-{
-    var newBox = new box();
-    boxes.push(newBox);
-}
 
+load_environment();
+load_boxes();
+
+animate();
 
 console.log('Started..');
 
-main();
+function load_boxes(){
+    for (var x=0; x<1000; x++)
+    {
+        var newBox = new box();
+        boxes.push(newBox);
+    }
+}
 
-function main(){
+function load_environment(){
     // create a webgl context
-	canvas = document.getElementById('canvas');
 	gl = canvas.getContext('webgl');
-
 	if (!gl){
 		alert('No WebGL support!');
 	}
 
     //this function is called during resizes
     window.onresize = function(){
-        canvas = document.getElementById('canvas');
-        canvas.width = window.innerWidth - 200;
-        //canvas.width;
+        canvas.width = window.innerWidth;
         canvas.height = canvas.width * .562;
         gl.viewport(0, 0, canvas.width, canvas.height);
+
+        gl.uniform2f(resolution, canvas.width, canvas.height);
 
     }
     window.onresize();
@@ -49,15 +54,11 @@ function main(){
     // set up the frag shaderz
     var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
     gl.shaderSource(fragmentShader, 
-        document.getElementById('fragment-shader').innerHTML);
+    document.getElementById('fragment-shader').innerHTML);
     gl.compileShader(fragmentShader);
     gl.attachShader(program, fragmentShader);
 
     gl.linkProgram(program); //makes it active
-
-
-
-
 
     var positionAttrib = gl.getAttribLocation(program, 'a_position');
 
@@ -68,25 +69,19 @@ function main(){
 
     gl.useProgram(program); //saves on performance: do here instead of before draw
 
-    // Set a random color.
-
-        // set the resolution
-    var resolutionLocation = gl.getUniformLocation(program, "u_resolution");
-    gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
-
-
-    animate();
-
+    // set the resolution
+    resolution = gl.getUniformLocation(program, "u_resolution");
+    gl.uniform2f(resolution, canvas.width, canvas.height);
 }
 
+
 function box(){
-    canvas = document.getElementById('canvas');
-    this.pos = [(canvas.width / 2) + 50, canvas.height / 2];
+    this.pos = [canvas.width / 4, canvas.height / 4];
     this.height = 10;
     this.width = 10;
     this.speed = 2.0;
     this.velocity = [Math.random() * 2.0 - 1.0, Math.random() * 2.0 - 1.0];
-    this.color = [Math.random(), Math.random(), Math.random(), 0.7];
+    this.color = [Math.random()/2, 0.56, 0.76, 0.8];
 
     this.points = new Float32Array([this.pos[0], this.pos[1],
                                     this.pos[0], this.pos[1]+this.height,
@@ -120,13 +115,15 @@ function box(){
     }
 }
 
+
 function animate(){
 
     for (var b=0; b<boxes.length; b++)
     {
         var box = boxes[b];
 
-        gl.bufferData(gl.ARRAY_BUFFER, box.points, gl.STATIC_DRAW); //can't pass it a js array, we gotta change it.
+        //can't pass it a js array, we gotta change it.
+        gl.bufferData(gl.ARRAY_BUFFER, box.points, gl.STATIC_DRAW); 
 
         var colorLocation = gl.getUniformLocation(program, "u_color");
         gl.uniform4f(colorLocation, box.color[0], box.color[1], 
