@@ -1,110 +1,106 @@
-<!-- Style -->
-<style>
 
-    body
-    {
-        margin-top: 0px;
-        margin-right: 0px;
-        margin-bottom: 0px;
-        margin-left: 0px;
-        background-color:#283772;
-        margin:0;
-        padding:0;
-        border:0;
-        outline:0;
-        vertical-align:baseline;
+body
+{
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    background-color:#283772;
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    vertical-align:baseline;
+}
+
+ul
+{
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-padding-start: 0px;
+    padding: 0;
+}
+
+.navigation {
+    list-style: none;
+    margin: 0;
+    background: #84989E;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: row wrap;
+    justify-content: flex-end;
+}
+
+.navigation a {
+    /* style of nav bar */
+    text-decoration: none;
+    font-family:arial;
+    display: block;
+    padding: 2em;
+    color: #D5F5FF;
+}
+
+.navigation a:hover {
+    background: #606E73;
+}
+
+@media all and (max-width: 800px) {
+    .navigation {
+        justify-content: space-around;
     }
 
-    ul
-    {
-        -webkit-margin-before: 0em;
-        -webkit-margin-after: 0em;
-        -webkit-padding-start: 0px;
+    .navagation a {
+        flex-line-pack: stretch;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .navigation {
+        -webkit-flex-flow: column wrap;
+        flex-flow: column wrap;
         padding: 0;
     }
 
-    .navigation {
-        list-style: none;
-        margin: 0;
-        background: #84989E;
-
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-
-        -webkit-flex-flow: row wrap;
-        justify-content: flex-end;
-    }
-
-    .navigation a {
-        /* style of nav bar */
-        text-decoration: none;
-        font-family:arial;
-        display: block;
-        padding: 2em;
-        color: #D5F5FF;
-    }
-
-    .navigation a:hover {
-        background: #606E73;
-    }
-
-    @media all and (max-width: 800px) {
-        .navigation {
-            justify-content: space-around;
-        }
-
-        .navagation a {
-            flex-line-pack: stretch;
-        }
-    }
-
-    @media all and (max-width: 600px) {
-        .navigation {
-            -webkit-flex-flow: column wrap;
-            flex-flow: column wrap;
-            padding: 0;
-        }
-  
-        .navigation a { 
-            /* adjusts dimensions of small layered buttons */
-            text-align: center; 
-            padding: 5px;
-            border-top: 1px solid rgba(255,255,255,0.3); 
-            border-bottom: 1px solid rgba(0,0,0,0.1); 
-        }
-
-  
-        .navigation li:last-of-type a {
-            border-bottom: none;
-        }
-    }
-
-    .Block{
-        background-color:#D5F5FF;
-        padding: 1em;
-        text-align:center;
-
-        text-align:center;
-        font-family:arial;
-        margin:0em;
-        font-size:150%;
+    .navigation a { 
+        /* adjusts dimensions of small layered buttons */
+        text-align: center; 
+        padding: 5px;
+        border-top: 1px solid rgba(255,255,255,0.3); 
+        border-bottom: 1px solid rgba(0,0,0,0.1); 
     }
 
 
-    
-    #section {
-        margin-top: 20px;
-
-        background-color:#D5F5FF;
-        /*color:#1A464A;*/
-        text-align:center;
-        font-family:arial;
-        margin:0em;
-        padding:0em;
-        font-size:150%;
+    .navigation li:last-of-type a {
+        border-bottom: none;
     }
+}
 
-</style>
+.Block{
+    background-color:#D5F5FF;
+    padding: 1em;
+    text-align:center;
+
+    text-align:center;
+    font-family:arial;
+    margin:0em;
+    font-size:150%;
+}
+
+
+
+#section {
+    margin-top: 20px;
+
+    background-color:#D5F5FF;
+    /*color:#1A464A;*/
+    text-align:center;
+    font-family:arial;
+    margin:0em;
+    padding:0em;
+    font-size:150%;
+}
