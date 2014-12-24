@@ -3,9 +3,6 @@
 var canvas, gl, program;
 canvas = document.getElementById('canvas');
 
-var s_width = 1000;
-var s_height = 1000;
-
 var resolution;
 
 var boxes = [];
@@ -37,9 +34,7 @@ function load_environment(){
         canvas.width = window.innerWidth;
         canvas.height = canvas.width * .562;
         gl.viewport(0, 0, canvas.width, canvas.height);
-
         gl.uniform2f(resolution, canvas.width, canvas.height);
-
     }
     window.onresize();
 
@@ -79,8 +74,10 @@ function box(){
     this.pos = [canvas.width / 4, canvas.height / 4];
     this.height = 10;
     this.width = 10;
-    this.speed = 2.0;
-    this.velocity = [Math.random() * 2.0 - 1.0, Math.random() * 2.0 - 1.0];
+    this.speed = 0.5;
+    this.friction = 0.92;
+    this.acceleration = [Math.random() * 2.0 - 1.0, Math.random() * 2.0 - 1.0];
+    this.velocity = [(Math.random() * 2.0 - 1.0) * 25, (Math.random() * 2.0 - 1.0) * 25];
     this.color = [Math.random()/2, 0.56, 0.76, 0.8];
 
     this.points = new Float32Array([this.pos[0], this.pos[1],
@@ -103,10 +100,14 @@ function box(){
     }
 
     this.move = function(){
+        this.velocity[0] -= this.acceleration[0] / 5;
+        this.velocity[0] *= this.friction;
         this.pos[0] += this.velocity[0] * this.speed;
         // if ( (this.pos[0]+this.width > canvas.width / 2) || (this.pos[0] < 0) ){
         //     this.velocity[0] *= -1;
         // }
+        this.velocity[1] -= this.acceleration[1] / 5;
+        this.velocity[1] *= this.friction;
         this.pos[1] += this.velocity[1] * this.speed;
         // if ( (this.pos[1]+this.height > canvas.height / 2) || (this.pos[1] < 0) ){
         //     this.velocity[1] *= -1;
