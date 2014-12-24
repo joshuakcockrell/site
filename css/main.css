@@ -1,13 +1,31 @@
 <!-- Style -->
 <style>
-    #body
+
+    body
     {
-    background-color:#3E474A;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        background-color:#283772;
+        margin:0;
+        padding:0;
+        border:0;
+        outline:0;
+        vertical-align:baseline;
+    }
+
+    ul
+    {
+        -webkit-margin-before: 0em;
+        -webkit-margin-after: 0em;
+        -webkit-padding-start: 0px;
+        padding: 0;
     }
 
     .navigation {
         list-style: none;
-        /*margin: 0;*/
+        margin: 0;
         background: #84989E;
 
         display: -webkit-box;
@@ -37,6 +55,10 @@
         .navigation {
             justify-content: space-around;
         }
+
+        .navagation a {
+            flex-line-pack: stretch;
+        }
     }
 
     @media all and (max-width: 600px) {
@@ -61,7 +83,14 @@
     }
 
     .Block{
-        margin-bottom: 10px;
+        background-color:#D5F5FF;
+        padding: 1em;
+        text-align:center;
+
+        text-align:center;
+        font-family:arial;
+        margin:0em;
+        font-size:150%;
     }
 
 

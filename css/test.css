@@ -1,0 +1,39 @@
+
+<!-- Style -->
+<style>
+
+body{
+    background-color:#283772;
+    margin: 0 auto;
+    padding:0;
+    border:0;
+    outline:0;
+    vertical-align:baseline;
+}
+
+
+.junk {
+    flex: 1 100%;
+    background: #BBBBBB;
+}
+
+.junk ok {
+    display: block;
+    padding: 1em;
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
