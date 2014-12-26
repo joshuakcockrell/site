@@ -6,7 +6,7 @@ canvas = document.getElementById('canvas');
 var resolution;
 
 var boxes = [];
-var BOX_COUNT = 200000;
+var BOX_COUNT = 1000000;
 var boxesPoints = new Float32Array(BOX_COUNT*2); // each box takes two spots
 
 var current = Date.now();
