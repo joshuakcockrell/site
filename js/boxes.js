@@ -6,8 +6,12 @@ canvas = document.getElementById('canvas');
 var resolution;
 
 var boxes = [];
-var BOX_COUNT = 3000;
+var BOX_COUNT = 25000;
 var boxesPoints = new Float32Array(BOX_COUNT*2); // each box takes two spots
+
+var current = Date.now();
+var previous;
+var delta;
 
 load_environment();
 load_boxes();
@@ -77,51 +81,35 @@ function box(){
     this.pos = [canvas.width / 4, canvas.height / 4];
     this.height = 10;
     this.width = 10;
-    this.speed = 0.5;
+    this.speed = 15.0;
     this.friction = 0.92;
     this.acceleration = [Math.random() * 2.0 - 1.0, Math.random() * 2.0 - 1.0];
     this.velocity = [(Math.random() * 2.0 - 1.0) * 25, (Math.random() * 2.0 - 1.0) * 25];
-    this.color = [Math.random()/2, 0.56, 0.76, 0.8];
-    // this.color = [0, 0, 0, 1];
-
-    this.points = new Float32Array([this.pos[0], this.pos[1],
-                                    this.pos[0], this.pos[1]+this.height,
-                                    this.pos[0]+this.width, this.pos[1]+this.height,
-                                    this.pos[0]+this.width, this.pos[1]])
-
-    this.updatePoints = function(){
-        this.points[0] = this.pos[0];
-        this.points[1] = this.pos[1];
-
-        this.points[2] = this.pos[0];
-        this.points[3] = this.pos[1]+this.height;
-
-        this.points[4] = this.pos[0]+this.width;
-        this.points[5] = this.pos[1]+this.height;
-
-        this.points[6] = this.pos[0]+this.width;
-        this.points[7] = this.pos[1];
-    }
+    //this.color = [Math.random()/2, 0.56, 0.76, 0.8];
+    this.color = [0,0,0,1];
 
     this.move = function(){
         this.velocity[0] -= this.acceleration[0] / 5;
         this.velocity[0] *= this.friction;
-        this.pos[0] += this.velocity[0] * this.speed;
+        this.pos[0] += this.velocity[0] * this.speed * delta;
         // if ( (this.pos[0]+this.width > canvas.width / 2) || (this.pos[0] < 0) ){
         //     this.velocity[0] *= -1;
         // }
         this.velocity[1] -= this.acceleration[1] / 5;
         this.velocity[1] *= this.friction;
-        this.pos[1] += this.velocity[1] * this.speed;
+        this.pos[1] += this.velocity[1] * this.speed * delta;
         // if ( (this.pos[1]+this.height > canvas.height / 2) || (this.pos[1] < 0) ){
         //     this.velocity[1] *= -1;
         // }
-        this.updatePoints();
     }
 }
 
 
 function animate(){
+
+    previous = current;
+    current = Date.now();
+    delta = (current - previous) / 1000;
 
     var box;
     boxI = 0;
@@ -129,18 +117,15 @@ function animate(){
     {
         box = boxes[b];
 
-        boxesPoints[boxI] = box.points[0];
-        boxI++;
-        boxesPoints[boxI] = box.points[1];
-        boxI++;
-
-
-        gl.uniform4f(gl.getUniformLocation(program, "u_color"),
-            box.color[0], box.color[1], 
-            box.color[2], box.color[3]);
+        boxesPoints[boxI] = box.pos[0];
+        boxesPoints[boxI+1] = box.pos[1];
+        boxI += 2;
 
         box.move();
     }
+    gl.uniform4f(gl.getUniformLocation(program, "u_color"),
+            box.color[0], box.color[1], 
+            box.color[2], box.color[3]);
     gl.bufferData(gl.ARRAY_BUFFER, boxesPoints, gl.STATIC_DRAW); 
     gl.drawArrays(gl.POINTS, 0, boxes.length); //# total points
 
