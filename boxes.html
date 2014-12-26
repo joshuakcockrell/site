@@ -27,7 +27,6 @@
 		<!-- SHADERS -->
 
 		<!-- Vertex Shader -->
-
         <script id="vertex-shader" type="x-shader/x-vertex">
 			attribute vec2 a_position;
 			uniform vec2 u_resolution;
@@ -39,17 +38,11 @@
 				vec2 zeroToTwo = zeroToOne * 2.0;
 
 				gl_Position = vec4(zeroToTwo*2.0 - 1.0, 0, 1); //ofset our positions
+				gl_PointSize = 20.0;
 			}
 		</script>
 
         <!-- Fragment Shader -->
-        <script id='fxxragment-shader' type='x-shader/x-vertex'>
-            void main(){
-
-                gl_FragColor = vec4(1, 0, 0, 0.5);
-            }
-        </script>
-
         <script id="fragment-shader" type="x-shader/x-fragment">
 			precision mediump float;
 			uniform vec4 u_color;

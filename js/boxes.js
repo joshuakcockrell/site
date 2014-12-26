@@ -6,6 +6,8 @@ canvas = document.getElementById('canvas');
 var resolution;
 
 var boxes = [];
+var BOX_COUNT = 3000;
+var boxesPoints = new Float32Array(BOX_COUNT*2); // each box takes two spots
 
 load_environment();
 load_boxes();
@@ -15,7 +17,7 @@ animate();
 console.log('Started..');
 
 function load_boxes(){
-    for (var x=0; x<500; x++)
+    for (var x=0; x<BOX_COUNT; x++)
     {
         var newBox = new box();
         boxes.push(newBox);
@@ -57,10 +59,11 @@ function load_environment(){
 
     var positionAttrib = gl.getAttribLocation(program, 'a_position');
 
-    gl.enableVertexAttribArray(positionAttrib);
+    // set how gpu interprets vertex points
+    gl.enableVertexAttribArray(positionAttrib); 
     gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
-
-    gl.vertexAttribPointer(positionAttrib, 2, gl.FLOAT, false, 0, 0); 
+    // 8 is stride
+    gl.vertexAttribPointer(positionAttrib, 2, gl.FLOAT, false, 8, 0); // '2' is 2D
 
     gl.useProgram(program); //saves on performance: do here instead of before draw
 
@@ -79,6 +82,7 @@ function box(){
     this.acceleration = [Math.random() * 2.0 - 1.0, Math.random() * 2.0 - 1.0];
     this.velocity = [(Math.random() * 2.0 - 1.0) * 25, (Math.random() * 2.0 - 1.0) * 25];
     this.color = [Math.random()/2, 0.56, 0.76, 0.8];
+    // this.color = [0, 0, 0, 1];
 
     this.points = new Float32Array([this.pos[0], this.pos[1],
                                     this.pos[0], this.pos[1]+this.height,
@@ -120,20 +124,25 @@ function box(){
 function animate(){
 
     var box;
-    for (var b=0; b<boxes.length; b++)
+    boxI = 0;
+    for (var b=0; b<boxes.length; b++) //boxes.length
     {
         box = boxes[b];
 
-        //can't pass it a js array, we gotta change it.
-        gl.bufferData(gl.ARRAY_BUFFER, box.points, gl.STATIC_DRAW); 
+        boxesPoints[boxI] = box.points[0];
+        boxI++;
+        boxesPoints[boxI] = box.points[1];
+        boxI++;
+
 
         gl.uniform4f(gl.getUniformLocation(program, "u_color"),
             box.color[0], box.color[1], 
             box.color[2], box.color[3]);
-        gl.drawArrays(gl.TRIANGLE_FAN, 0, 4) //4 total arrays
 
         box.move();
     }
+    gl.bufferData(gl.ARRAY_BUFFER, boxesPoints, gl.STATIC_DRAW); 
+    gl.drawArrays(gl.POINTS, 0, boxes.length); //# total points
 
     window.requestAnimationFrame(animate);
 }
