@@ -13,12 +13,40 @@ var current = Date.now();
 var previous;
 var delta;
 
-load_environment();
+var mouseX = 300;
+var mouseY = 300;
+var canvasrect;
+document.addEventListener( "mousedown", onMouseDown, false );
+
+load_scene();
 load_boxes();
 
 animate();
 
 console.log('Started..');
+
+function onMouseDown(e){
+
+    canvasrect = canvas.getBoundingClientRect();
+
+    console.log("draw");
+    console.log(e.pageY);
+    console.log(canvas.height);
+    console.log(canvasrect.top);
+
+    mouseX = (e.pageX - canvasrect.left) / 2;
+    mouseY = e.pageY - canvas.height + canvasrect.top;// - canvas.height;//(canvas.height - canvasrect.top - e.pageY);
+
+    for (var b=0; b<boxes.length; b++) //boxes.length
+    {
+        box = boxes[b];
+        box.reset();
+        box.pos[0] = mouseX;
+        box.pos[1] = mouseY;
+    }
+
+    e.preventDefault();
+}
 
 function load_boxes(){
     for (var x=0; x<BOX_COUNT; x++)
@@ -28,7 +56,7 @@ function load_boxes(){
     }
 }
 
-function load_environment(){
+function load_scene(){
     // create a webgl context
 	gl = canvas.getContext('webgl');
 	if (!gl){
@@ -77,16 +105,19 @@ function load_environment(){
 }
 
 
-function box(){
-    this.pos = [canvas.width / 4, canvas.height / 4];
-    this.height = 10;
-    this.width = 10;
-    this.speed = 15.0;
-    this.friction = 0.92;
-    this.acceleration = [Math.random() * 2.0 - 1.0, Math.random() * 2.0 - 1.0];
-    this.velocity = [(Math.random() * 2.0 - 1.0) * 25, (Math.random() * 2.0 - 1.0) * 25];
-    //this.color = [Math.random()/2, 0.56, 0.76, 0.8];
-    this.color = [0,0,0,1];
+function box()
+{
+    this.reset = function(){
+        this.pos = [canvas.width / 4, canvas.height / 4];
+        this.height = 10;
+        this.width = 10;
+        this.speed = 15.0;
+        this.friction = 0.92;
+        this.acceleration = [Math.random() * 2.0 - 1.0, Math.random() * 2.0 - 1.0];
+        this.velocity = [(Math.random() * 2.0 - 1.0) * 25, (Math.random() * 2.0 - 1.0) * 25];
+        //this.color = [Math.random()/2, 0.56, 0.76, 0.8];
+        this.color = [0,0,0,1];
+    }
 
     this.move = function(){
         this.velocity[0] -= this.acceleration[0] / 5;
@@ -102,6 +133,8 @@ function box(){
         //     this.velocity[1] *= -1;
         // }
     }
+
+    this.reset();
 }
 
 
