@@ -26,6 +26,7 @@ animate();
 console.log('Started..');
 
 function onMouseDown(e){
+    //ontouchstart for iphone!!
 
     canvasrect = canvas.getBoundingClientRect();
 
@@ -35,7 +36,10 @@ function onMouseDown(e){
     console.log(canvasrect.top);
 
     mouseX = (e.pageX - canvasrect.left) / 2;
-    mouseY = e.pageY - canvas.height + canvasrect.top;// - canvas.height;//(canvas.height - canvasrect.top - e.pageY);
+    //mouseY = e.pageY - canvas.height + canvasrect.top;// - canvas.height;//(canvas.height - canvasrect.top - e.pageY);
+
+    mouseY = (e.pageY-canvasrect.top)/(canvasrect.bottom-canvasrect.top)*canvas.height
+
 
     for (var b=0; b<boxes.length; b++) //boxes.length
     {
