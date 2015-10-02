@@ -1,14 +1,20 @@
+/*
+Dark Grey: 525252
+White: EFEFEF
+Blue: 30D6F5
+
+*/
 
 body
 {
-    background-color:#D5F5FF;
+    background-color:#EFEFEF;
     margin:0;
 }
 
 .navigation {
     list-style: none;
     margin: 0;
-    background: #84989E;
+    background: #EFEFEF;
 
     display: -webkit-box;
     display: -moz-box;
@@ -26,11 +32,11 @@ body
     font-family:arial;
     display: block;
     padding: 2em;
-    color: #D5F5FF;
+    color: #1DDDFA;
 }
 
 .navigation a:hover {
-    background: #606E73;
+    background: #EBEBEB;
 }
 
 @media all and (max-width: 800px) {
@@ -65,7 +71,8 @@ body
 }
 
 .Block{
-    background-color:#D5F5FF;
+    /*position: absolute;*/
+    background-color:#EFEFEF;
     padding: 1em;
     text-align:center;
 
@@ -80,7 +87,7 @@ body
 #section {
     margin-top: 20px;
 
-    background-color:#D5F5FF;
+    background-color:#EFEFEF;
     /*color:#1A464A;*/
     text-align:center;
     font-family:arial;

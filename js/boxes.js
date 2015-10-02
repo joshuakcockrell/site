@@ -6,7 +6,9 @@ canvas = document.getElementById('canvas');
 var resolution;
 
 var boxes = [];
-var BOX_COUNT = 25000;
+var BOX_COUNT = 20000;
+var BOX_GROUPS_COUNT = 500;
+var NUM_OF_BOXES_PER_GROUP = BOX_COUNT / BOX_GROUPS_COUNT;
 var boxesPoints = new Float32Array(BOX_COUNT*2); // each box takes two spots
 
 var current = Date.now();
@@ -16,7 +18,7 @@ var delta;
 var mouseX = 300;
 var mouseY = 300;
 var canvasrect;
-document.addEventListener( "mousedown", onMouseDown, false );
+document.addEventListener( "mousemove", onMouseMove, false );
 
 load_scene();
 load_boxes();
@@ -25,24 +27,27 @@ animate();
 
 console.log('Started..');
 
-function onMouseDown(e){
+var count = 0;
+
+function onMouseMove(e){
     //ontouchstart for iphone!!
 
     canvasrect = canvas.getBoundingClientRect();
 
-    console.log("draw");
-    console.log(e.pageY);
-    console.log(canvas.height);
-    console.log(canvasrect.top);
-
     mouseX = (e.pageX - canvasrect.left) / 2;
-    //mouseY = e.pageY - canvas.height + canvasrect.top;// - canvas.height;//(canvas.height - canvasrect.top - e.pageY);
+    mouseY = canvas.height / 2 - (e.pageY-canvasrect.top)/(canvasrect.bottom-canvasrect.top)*canvas.height / 2
 
-    mouseY = (e.pageY-canvasrect.top)/(canvasrect.bottom-canvasrect.top)*canvas.height
+    // alert(mouseX + " " + mouseY);
 
+    //00 is top left
 
-    for (var b=0; b<boxes.length; b++) //boxes.length
-    {
+    var boxStart = NUM_OF_BOXES_PER_GROUP * count;
+    var boxEnd = boxStart + NUM_OF_BOXES_PER_GROUP;
+    count ++;
+    if (count >= BOX_GROUPS_COUNT) {
+        count = 0;
+    }
+    for (var b=boxStart; b<boxEnd; b++) {
         box = boxes[b];
         box.reset();
         box.pos[0] = mouseX;
@@ -55,8 +60,7 @@ function onMouseDown(e){
 function load_boxes(){
     for (var x=0; x<BOX_COUNT; x++)
     {
-        var newBox = new box();
-        boxes.push(newBox);
+        boxes.push(new box());
     }
 }
 
@@ -112,30 +116,31 @@ function load_scene(){
 function box()
 {
     this.reset = function(){
-        this.pos = [canvas.width / 4, canvas.height / 4];
+        this.pos = [canvas.width / 4 * 100, canvas.height / 4 * 100];
         this.height = 10;
         this.width = 10;
-        this.speed = 15.0;
-        this.friction = 0.92;
+        this.speed = 2.0;
+        this.friction = 0.98;
         this.acceleration = [Math.random() * 2.0 - 1.0, Math.random() * 2.0 - 1.0];
         this.velocity = [(Math.random() * 2.0 - 1.0) * 25, (Math.random() * 2.0 - 1.0) * 25];
         //this.color = [Math.random()/2, 0.56, 0.76, 0.8];
         this.color = [0,0,0,1];
     }
 
+    this.updateColor = function(){
+        this.color[0] = this.color[0] + 0.002;
+        this.color[1] = this.color[1] + 0.002;
+        this.color[2] = this.color[2] + 0.002;
+    }
+
     this.move = function(){
         this.velocity[0] -= this.acceleration[0] / 5;
         this.velocity[0] *= this.friction;
         this.pos[0] += this.velocity[0] * this.speed * delta;
-        // if ( (this.pos[0]+this.width > canvas.width / 2) || (this.pos[0] < 0) ){
-        //     this.velocity[0] *= -1;
-        // }
+
         this.velocity[1] -= this.acceleration[1] / 5;
         this.velocity[1] *= this.friction;
         this.pos[1] += this.velocity[1] * this.speed * delta;
-        // if ( (this.pos[1]+this.height > canvas.height / 2) || (this.pos[1] < 0) ){
-        //     this.velocity[1] *= -1;
-        // }
     }
 
     this.reset();
@@ -159,6 +164,7 @@ function animate(){
         boxI += 2;
 
         box.move();
+        box.updateColor();
     }
     gl.uniform4f(gl.getUniformLocation(program, "u_color"),
             box.color[0], box.color[1], 
@@ -168,6 +174,5 @@ function animate(){
 
     window.requestAnimationFrame(animate);
 }
-
 
 })();
