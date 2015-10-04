@@ -128,9 +128,9 @@ function box()
     }
 
     this.updateColor = function(){
-        this.color[0] = this.color[0] + 0.002;
-        this.color[1] = this.color[1] + 0.002;
-        this.color[2] = this.color[2] + 0.002;
+        this.color[0] = this.color[0] + 0.00;
+        this.color[1] = this.color[1] + 0.00;
+        this.color[2] = this.color[2] + 0.00;
     }
 
     this.move = function(){
