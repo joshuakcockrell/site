@@ -5,66 +5,76 @@ canvas = document.getElementById('canvas');
 
 var resolution;
 
+// Emitter
+var emitters = [];
+var EMITTER_COUNT = 60;
+
+// Boxes
 var boxes = [];
-var BOX_COUNT = 20000;
-var BOX_GROUPS_COUNT = 500;
+var BOX_COUNT = 10000;
+var BOX_GROUPS_COUNT = 1000;
 var NUM_OF_BOXES_PER_GROUP = BOX_COUNT / BOX_GROUPS_COUNT;
-var boxesPoints = new Float32Array(BOX_COUNT*2); // each box takes two spots
 
-var current = Date.now();
-var previous;
-var delta;
+var itemPoints = new Float32Array((BOX_COUNT + EMITTER_COUNT)*2); // each box takes two spots
 
-var mouseX = 300;
-var mouseY = 300;
+var mouseX = 0;
+var mouseY = 0;
 var canvasrect;
-document.addEventListener( "mousemove", onMouseMove, false );
 
 load_scene();
 load_boxes();
+load_emitters();
+
+var current = Date.now();
+var previous;
+var delta = 0;
 
 animate();
 
 console.log('Started..');
 
 var count = 0;
+var mouseDown = false;
 
-function onMouseMove(e){
+// Add mousemovement event
+document.addEventListener( "mousedown", onMouseDown, false );
+document.addEventListener( "mouseup", onMouseUp, false );
+document.addEventListener( "mousemove", onMouseMove, false );
+
+
+function onMouseDown(e){
+    mouseDown = true;
+}
+
+function onMouseUp(e){
+    mouseDown = false;
+}
+
+function onMouseMove(e) {
     //ontouchstart for iphone!!
 
     canvasrect = canvas.getBoundingClientRect();
 
     mouseX = (e.pageX - canvasrect.left) / 2;
     mouseY = canvas.height / 2 - (e.pageY-canvasrect.top)/(canvasrect.bottom-canvasrect.top)*canvas.height / 2
-
-    // alert(mouseX + " " + mouseY);
-
-    //00 is top left
-
-    var boxStart = NUM_OF_BOXES_PER_GROUP * count;
-    var boxEnd = boxStart + NUM_OF_BOXES_PER_GROUP;
-    count ++;
-    if (count >= BOX_GROUPS_COUNT) {
-        count = 0;
-    }
-    for (var b=boxStart; b<boxEnd; b++) {
-        box = boxes[b];
-        box.reset();
-        box.pos[0] = mouseX;
-        box.pos[1] = mouseY;
-    }
-
-    e.preventDefault();
 }
 
 function load_boxes(){
     for (var x=0; x<BOX_COUNT; x++)
     {
-        boxes.push(new box());
+        boxes.push(new Box());
+    }
+}
+
+function load_emitters(){
+    for (var x=0; x<EMITTER_COUNT; x++)
+    {
+        emitters.push(new Emitter());
     }
 }
 
 function load_scene(){
+
     // create a webgl context
 	gl = canvas.getContext('webgl');
 	if (!gl){
@@ -74,10 +84,11 @@ function load_scene(){
     //this function is called during resizes
     window.onresize = function(){
         canvas.width = window.innerWidth;
-        canvas.height = canvas.width * .562;
+        canvas.height = window.innerHeight - canvas.getBoundingClientRect().top;
         gl.viewport(0, 0, canvas.width, canvas.height);
         gl.uniform2f(resolution, canvas.width, canvas.height);
     }
+    // call at the start
     window.onresize();
 
     program = gl.createProgram();
@@ -102,6 +113,7 @@ function load_scene(){
     // set how gpu interprets vertex points
     gl.enableVertexAttribArray(positionAttrib); 
     gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+
     // 8 is stride
     gl.vertexAttribPointer(positionAttrib, 2, gl.FLOAT, false, 8, 0); // '2' is 2D
 
@@ -112,18 +124,112 @@ function load_scene(){
     gl.uniform2f(resolution, canvas.width, canvas.height);
 }
 
+function Vector(inputX, inputY){
 
-function box()
+    this.x = inputX;
+    this.y = inputY;
+
+    this.subtract = function(vector){
+        return new Vector(vector.x - this.x, vector.y - this.y);
+    }
+
+    // Add abs of both then square 
+    this.length = function(){
+        return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
+    }
+
+    this.normalize = function(){
+        var l = this.length();
+        if (l != 0) {
+            this.x /= l;
+            this.y /= l;
+        }
+
+        return this;
+    }
+
+    return this;
+}
+
+function Emitter(){
+
+    this.reset = function(){
+        this.onFirstUpdate = true;
+
+        this.speed = 10;
+        this.friction = 0.993;
+        this.velocity = [(Math.random() * 2.0 - 1.0) * 20, (Math.random() * 2.0 - 1.0) * 20];
+        this.pos = [canvas.width/4, canvas.height/4];
+
+        this.color = [0,0,0,1];
+    }
+
+    this.emitParticles = function(){
+    
+        var boxStart = NUM_OF_BOXES_PER_GROUP * count;
+        var boxEnd = boxStart + NUM_OF_BOXES_PER_GROUP;
+        count ++;
+        if (count >= BOX_GROUPS_COUNT) {
+            count = 0;
+        }
+        for (var b=boxStart; b<boxEnd; b++) {
+            box = boxes[b];
+            box.reset();
+            box.pos[0] = this.pos[0];
+            box.pos[1] = this.pos[1];
+        }
+    }
+
+    this.pull = function(pos) {
+
+        var mouseVec = new Vector(pos[0], pos[1]);
+
+        var direction = new Vector(this.pos[0], this.pos[1]).subtract(mouseVec).normalize();
+
+        this.velocity[0] += direction.x;
+        this.velocity[1] += direction.y;
+    }
+
+    this.move = function(){
+
+        // get direction
+        if (mouseDown) {
+            this.pull([mouseX, mouseY]);
+        }
+
+        // // Apply speed
+        // this.speed[0] += (this.velocity.x * this.movementSpeed);
+        // this.speed[1] += (this.velocity.y * this.movementSpeed);
+
+        // Apply friction
+        this.velocity[0] *= this.friction;
+        this.velocity[1] *= this.friction;
+
+        // Adjust position
+        this.pos[0] += this.velocity[0] * this.speed * delta;
+        this.pos[1] += this.velocity[1] * this.speed * delta;
+
+        // Boundaries
+        if (this.pos[0] >= canvas.width / 2 || this.pos[0] <= 0) {
+            this.velocity[0] *= -1;
+        }
+        if (this.pos[1] >= canvas.height / 2 || this.pos[1] <= 0) {
+            this.velocity[1] *= -1;
+        }
+
+        this.emitParticles();
+    }
+
+    this.reset();
+}
+
+function Box()
 {
     this.reset = function(){
-        this.pos = [canvas.width / 4 * 100, canvas.height / 4 * 100];
-        this.height = 10;
-        this.width = 10;
-        this.speed = 2.0;
-        this.friction = 0.98;
-        this.acceleration = [Math.random() * 2.0 - 1.0, Math.random() * 2.0 - 1.0];
-        this.velocity = [(Math.random() * 2.0 - 1.0) * 25, (Math.random() * 2.0 - 1.0) * 25];
-        //this.color = [Math.random()/2, 0.56, 0.76, 0.8];
+        this.pos = [10000, 10000]; // clear the heck
+        this.speed = 25.0;
+        this.velocity = [(Math.random() * 2.0 - 1.0) / 30, (Math.random() * 2.0 - 1.0) / 30];
+        this.acceleration = [(Math.random() * 2.0 - 1.0) / 30, (Math.random() * 2.0 - 1.0) / 30];
         this.color = [0,0,0,1];
     }
 
@@ -134,12 +240,10 @@ function box()
     }
 
     this.move = function(){
-        this.velocity[0] -= this.acceleration[0] / 5;
-        this.velocity[0] *= this.friction;
+        this.velocity[0] -= this.acceleration[0];
         this.pos[0] += this.velocity[0] * this.speed * delta;
 
-        this.velocity[1] -= this.acceleration[1] / 5;
-        this.velocity[1] *= this.friction;
+        this.velocity[1] -= this.acceleration[1];
         this.pos[1] += this.velocity[1] * this.speed * delta;
     }
 
@@ -159,18 +263,34 @@ function animate(){
     {
         box = boxes[b];
 
-        boxesPoints[boxI] = box.pos[0];
-        boxesPoints[boxI+1] = box.pos[1];
+        itemPoints[boxI] = box.pos[0];
+        itemPoints[boxI+1] = box.pos[1];
         boxI += 2;
 
         box.move();
         box.updateColor();
     }
+
+    var emitter;
+    for (var e=0; e<emitters.length; e++) //boxes.length
+    {
+        emitter = emitters[e];
+
+        itemPoints[boxI] = emitter.pos[0];
+        itemPoints[boxI+1] = emitter.pos[1];
+        boxI += 2;
+
+        emitter.move();
+    }
+
+    // Set color
     gl.uniform4f(gl.getUniformLocation(program, "u_color"),
             box.color[0], box.color[1], 
             box.color[2], box.color[3]);
-    gl.bufferData(gl.ARRAY_BUFFER, boxesPoints, gl.STATIC_DRAW); 
-    gl.drawArrays(gl.POINTS, 0, boxes.length); //# total points
+
+    // Draw the points
+    gl.bufferData(gl.ARRAY_BUFFER, itemPoints, gl.STATIC_DRAW); 
+    gl.drawArrays(gl.POINTS, 0, boxes.length + emitters.length); //# total points
 
     window.requestAnimationFrame(animate);
 }

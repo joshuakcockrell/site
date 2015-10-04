@@ -19,7 +19,7 @@ function main(){
 	window.onresize = function(){
         canvas = document.getElementById('canvas');
 		canvas.width = window.innerWidth;
-		canvas.height = canvas.width * 0.562;
+		canvas.height = window.innerHeight - canvas.getBoundingClientRect().top;
 
 		gl.viewport(0, 0, canvas.width, canvas.height);
 
