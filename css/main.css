@@ -80,6 +80,12 @@ body
     }
 }
 
+#gui { 
+    position: fixed; 
+    top: 82px; 
+    right: 0px;
+}
+
 .Block{
     /*position: absolute;*/
     background-color:#EFEFEF;

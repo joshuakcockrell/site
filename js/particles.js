@@ -4,38 +4,18 @@ var canvas, gl, program;
 canvas = document.getElementById('canvas');
 
 var resolution;
-var pointSize;
-
-var Settings = function() {
-    this.pointSize = 1.0 ;
-    this.emitterCount = 30;
-    this.particleCount = 10000;
-    this.particleRefresh = 1000;
-};
-var settings = new Settings();
-
-var changed = function(newValue) {
-    load_scene();
-    load_emitters();
-    load_boxes();
-}
-
-var gui = new dat.GUI();
-gui.add(settings, 'pointSize', 1, 15).onChange(changed);
-gui.add(settings, 'emitterCount', 1, 10000).onChange(changed);
-gui.add(settings, 'particleCount', 1, 50000).onChange(changed);
-gui.add(settings, 'particleRefresh', 1, 2000).onChange(changed); // how many groups count is divided into
-
-// connect to dom
-gui.domElement.id = 'gui';
 
 // Emitter
 var emitters = [];
+var EMITTER_COUNT = 4000;
 
 // Boxes
 var boxes = [];
-var NUM_OF_PARTICLES_PER_GROUP;
-var itemPoints;
+var BOX_COUNT = 1;
+var BOX_GROUPS_COUNT = 1;
+var NUM_OF_BOXES_PER_GROUP = BOX_COUNT / BOX_GROUPS_COUNT;
+
+var itemPoints = new Float32Array((BOX_COUNT + EMITTER_COUNT)*2); // each box takes two spots
 
 var mouseX = 0;
 var mouseY = 0;
@@ -51,13 +31,16 @@ var delta = 0;
 
 animate();
 
-var count;
+console.log('Started..');
+
+var count = 0;
 var mouseDown = false;
 
 // Add mousemovement event
 document.addEventListener( "mousedown", onMouseDown, false );
 document.addEventListener( "mouseup", onMouseUp, false );
 document.addEventListener( "mousemove", onMouseMove, false );
+
 
 function onMouseDown(e){
     mouseDown = true;
@@ -77,20 +60,14 @@ function onMouseMove(e) {
 }
 
 function load_boxes(){
-
-    boxes = []; // empty it
-
-    for (var x=0; x<settings.particleCount; x++)
+    for (var x=0; x<BOX_COUNT; x++)
     {
         boxes.push(new Box());
     }
 }
 
 function load_emitters(){
-
-    emitters = []; // empty
-
-    for (var x=0; x<settings.emitterCount; x++)
+    for (var x=0; x<EMITTER_COUNT; x++)
     {
         emitters.push(new Emitter());
     }
@@ -114,10 +91,6 @@ function load_scene(){
     // call at the start
     window.onresize();
 
-    count = 0;
-    NUM_OF_PARTICLES_PER_GROUP = settings.particleCount / settings.particleRefresh;
-    itemPoints = new Float32Array((settings.particleCount + settings.emitterCount)*2); // each box takes two spots
-
     program = gl.createProgram();
 
     // set up the vertex shader
@@ -136,7 +109,6 @@ function load_scene(){
     gl.linkProgram(program); //makes it active
 
     var positionAttrib = gl.getAttribLocation(program, 'a_position');
-    glPointSize = gl.getAttribLocation(program, 'pointSize');
 
     // set how gpu interprets vertex points
     gl.enableVertexAttribArray(positionAttrib); 
@@ -194,10 +166,10 @@ function Emitter(){
 
     this.emitParticles = function(){
     
-        var boxStart = NUM_OF_PARTICLES_PER_GROUP * count;
-        var boxEnd = boxStart + NUM_OF_PARTICLES_PER_GROUP;
+        var boxStart = NUM_OF_BOXES_PER_GROUP * count;
+        var boxEnd = boxStart + NUM_OF_BOXES_PER_GROUP;
         count ++;
-        if (count >= settings.particleRefresh) {
+        if (count >= BOX_GROUPS_COUNT) {
             count = 0;
         }
         for (var b=boxStart; b<boxEnd; b++) {
@@ -319,9 +291,6 @@ function animate(){
     // Draw the points
     gl.bufferData(gl.ARRAY_BUFFER, itemPoints, gl.STATIC_DRAW); 
     gl.drawArrays(gl.POINTS, 0, boxes.length + emitters.length); //# total points
-
-    pointSize = gl.getUniformLocation(program, "u_pointSize");
-    gl.uniform1f(pointSize, settings.pointSize);
 
     window.requestAnimationFrame(animate);
 }
