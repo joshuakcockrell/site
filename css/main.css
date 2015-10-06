@@ -109,3 +109,41 @@ body
     padding:0em;
     font-size:150%;
 }
+
+
+
+/*photobanner*/
+
+.photobanner {
+    height: 250px;
+    width: 3050px;
+    margin-bottom: 80px;
+}
+
+.photobanner img {
+    height: 200px; 
+    width: auto;
+    transition: all 0.5s ease;
+}
+
+.photobanner img:hover {
+    transform: scale(1.15);
+    cursor: pointer;
+    box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+}
+
+/*keyframe animations*/
+.first {
+    animation: bannermove 30s linear infinite; /*speed 100*/
+}
+
+@-webkit-keyframes "bannermove" {
+    0% {
+        margin-left: 0px;
+    }
+    100% {
+        margin-left: -1215px;
+    }
+}
+
+}
