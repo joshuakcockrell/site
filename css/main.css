@@ -32,13 +32,14 @@ body
 
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Center on x axis */
+    justify-content: center;  /*Center on x axis*/ 
     align-content: center; /* Squash all to middle */
     align-items: center; /* Center on y axis */
 }
 
 #section-city {
     background-image: url(../assets/city-1.jpg);
+    background-position: center;
     height: 700px;
 }
 
@@ -49,6 +50,7 @@ body
 
 #section-stars {
     background-image: url(../assets/stars-1.jpg);
+    background-position: center;
     height: 700px;
 }
 
@@ -56,20 +58,22 @@ body
 .group-iphone {
     display: flex;
     justify-content: space-around; /* all in a row */
-    flex-flow row wrap;
+
     width: 80%;
-    height: auto;
+    height: 425px;
+    align-items: center;
 }
 
 .image-iphone {
-    width: 20%;
-    height: 100%;
+    max-height: 100%;
+    max-width: 30%;
 }
 
 h1, h2, h3, h4, h5{
     font-weight: lighter;
     margin-top: 0.00em;
     margin-bottom: 0.67em;
+    width: 100%;
 }
 
 /* Entire nav bar */
