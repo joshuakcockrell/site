@@ -42,6 +42,7 @@ body
                                       rgba(0, 0, 0, 0.4)), 
     /*background-image: linear-gradient(rgba(255, 255, 255, 0.4),
                                       rgba(255, 255, 255, 0.4)), */
+
     url(../assets/city-1.jpg);
     background-position: center;
     height: 700px;
@@ -49,7 +50,7 @@ body
 }
 
 #section-iphone {
-    background-color: #000000;
+    background-color: #121413;
     height: 750px;
 }
 
@@ -93,14 +94,16 @@ h1, h2, h3, h4, h5{
 /* Nav bar items */
 .section-nav a {
     text-decoration: none;
-    font-family:arial;
+    font-weight: lighter;
+    letter-spacing: 1.5px;
     display: block;
     padding: 2em;
     color: #000000;
 }
 
 .section-nav a:hover {
-    background: #D4CDC9;
+    background: #8D847E;
+    color: #F4F3F3;
 }
 
 @media all and (max-width: 750px) {
