@@ -7,6 +7,8 @@ A6958C
 404142 -- Darkest
 */
 
+@import url('http://fonts.googleapis.com/css?family=Lato');
+
 html, body
 {
     background-color:#F4F3F3; /*#F3E6DD;*/
@@ -37,6 +39,15 @@ body
     align-items: center; /* Center on y axis */
 }
 
+/* Entire nav bar */
+.section-nav {
+    list-style: none;
+    margin: 0;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
 #section-city {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4),
                                       rgba(0, 0, 0, 0.4)), 
@@ -58,6 +69,15 @@ body
     background-image: url(../assets/stars-1.jpg);
     background-position: center;
     height: 700px;
+}
+
+#section-footer {
+    background-color: #121413;
+    height: 200px;
+
+    justify-content: center;
+    align-items: center;
+
 }
 
 /* Three images as a group */
@@ -82,23 +102,26 @@ h1, h2, h3, h4, h5{
     width: 100%;
 }
 
-/* Entire nav bar */
-.section-nav {
-    list-style: none;
-    margin: 0;
-
-    display: flex;
-    justify-content: flex-end;
-}
-
 /* Nav bar items */
-.section-nav a {
+#section-header a {
     text-decoration: none;
     font-weight: lighter;
     letter-spacing: 1.5px;
     display: block;
     padding: 2em;
     color: #000000;
+}
+
+#section-footer a {
+    font-family: Lato;
+    text-decoration: none;
+    font-weight: lighter;
+    letter-spacing: 1.5px;
+    font-size: 75%;
+    display: block;
+    padding: 1em;
+    color: #CCCCCC;
+    /*background: #000000;*/
 }
 
 .section-nav a:hover {
@@ -120,7 +143,6 @@ h1, h2, h3, h4, h5{
         border-top: 1px solid rgba(255,255,255,0.3); 
         border-bottom: 1px solid rgba(0,0,0,0.1); 
     }
-
 
     .section-nav li:last-of-type a {
         border-bottom: none;
