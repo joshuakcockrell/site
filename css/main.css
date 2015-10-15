@@ -80,16 +80,6 @@ body
 
 }
 
-/* Three images as a group */
-.group-iphone {
-    display: flex;
-    justify-content: space-around; /* all in a row */
-
-    width: 80%;
-    height: 425px;
-    align-items: center;
-}
-
 .image-iphone {
     max-height: 100%;
     max-width: 30%;
@@ -166,9 +156,44 @@ h1, h2, h3, h4, h5{
     }
 }
 
-#gui {  /*dat gui element*/
+/* dat gui element */
+#gui { 
     position: fixed; 
     top: 82px; 
     right: 0px;
+}
+
+.container-iphone {
+    height: 425px;
+    width: 80%;
+    /*background: yellow;*/
+    /*display: flex;
+    justify-content: space-around; /* all in a row */*/
+}
+
+/* Three images as a group */
+.group-iphone {
+    display: flex;
+    justify-content: space-around; /* all in a row */
+
+    width: 100%;
+    height: 425px;
+    align-items: center;
+    /*background: purple;*/
+}
+
+.group-iphone {
+    animation-name: example;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    position: relative;
+}
+
+/* Standard syntax */
+@keyframes example {
+    0%   {left: 115%;}
+    25%  {left: 0px;}
+    75%  {left: 0px;}
+    100% {left: -115%;}
 }
 
