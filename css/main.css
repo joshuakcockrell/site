@@ -132,20 +132,28 @@ h1, h2, h3, h4, h5{
 }
 
 @media all and (max-width: 750px) {
+
+    .section-main {
+        font-size:200%;
+    }
+
     .section-nav {
         -webkit-flex-flow: column wrap;
         flex-flow: column wrap;
         padding: 0;
     }
 
-    .section-nav a { 
+    #section-header li { 
+        padding: 0em;
+    }
+
+    #section-header a { 
         /* adjusts dimensions of small layered buttons */
+        padding: 1em;
         text-align: center; 
-        padding: 5px;
         border-top: 1px solid rgba(255,255,255,0.3); 
         border-bottom: 1px solid rgba(0,0,0,0.1); 
     }
-
 
     #section-footer a {
         border-right: none;
