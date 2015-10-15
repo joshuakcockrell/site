@@ -176,7 +176,6 @@ h1, h2, h3, h4, h5{
     justify-content: space-around; /* all in a row */
     align-items: center;
     height: 425px;
-
     width: 25%;
 
     animation-name: slide-left;
@@ -185,7 +184,7 @@ h1, h2, h3, h4, h5{
     position: relative;
 }
 
-/* Standard syntax */
+/* iPhone photo animation */
 @keyframes slide-left {
     0%   {left: 37.5%;}
     15%  {left: 12.5%;}
