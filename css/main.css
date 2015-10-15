@@ -131,7 +131,7 @@ h1, h2, h3, h4, h5{
     color: #F4F3F3;
 }
 
-@media all and (max-width: 900px) {
+@media all and (max-width: 750px) {
     .section-nav {
         -webkit-flex-flow: column wrap;
         flex-flow: column wrap;
