@@ -1,2 +1,2 @@
 
-http://joshuakcockrell.github.io/site/
+http://joshuakcockrell.com
