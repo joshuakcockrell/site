@@ -95,7 +95,7 @@ body
     background-image: linear-gradient(rgba(0, 0, 0, 0.0),
                                       rgba(0, 0, 0, 0.4)),
 
-                        url(../assets/music_2.jpg);
+                        url(../assets/music_1.jpg);
     background-position: center;
     align-items: flex-end; /* squash text to bot */
     height: 700px;
