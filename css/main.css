@@ -7,69 +7,90 @@ A6958C
 404142 -- Darkest
 */
 
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(http://fonts.gstatic.com/s/lato/v11/MDadn8DQ_3oT6kvnUq_2r_esZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
+/*@import url(https://fonts.googleapis.com/css?family=Muli:400,300);*/
+/*@import url(https://fonts.googleapis.com/css?family=Oswald:400,700);*/
 
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 100;
-  src: local('Roboto Thin'), local('Roboto-Thin'), url(https://fonts.gstatic.com/s/roboto/v15/2tsd397wLxj96qwHyNIkxHYhjbSpvc47ee6xR_80Hnw.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
+/*@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,600,500,400,300);*/
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:900,700,100,300,400,500);*/
 
-html, body
-{
+
+/* CSS CLEAR DEFAULTS */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;vertical-align: baseline;background: transparent;}
+
+html, body {
     background-color:#F4F3F3; /*#F3E6DD;*/
     margin:0;
     overflow-x: hidden;
     text-align: center;
 }
 
-body
-{
-    font-family: 'helvetica neue', 'Roboto', arial;
+body {
+    position: relative;
+    z-index: 0;
+    font-family: Open Sans, sans-serif;
+    font-weight: 300;
+    letter-spacing: 1.2px;
     overflow-y: hidden;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: Roboto, sans-serif;
+    font-size: 500%;
+    font-weight: 200;
+    margin-top: 0.00em;
+    margin-bottom: 0.67em;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
 .section-main {
+    position: relative;
     margin:0em;
     padding:0em;
-    font-weight: lighter;
-    font-size:400%;
     color: #F4F3F3;
 
     background-size: cover;
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;  /*Center on x axis*/ 
-    align-content: center; /* Squash all to middle */
-    align-items: center; /* Center on y axis */
 }
 
-/* Entire nav bar */
+/* All nav bars */
 .section-nav {
     list-style: none;
     margin: 0;
-
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
-#section-city {
+#group-page {
+    z-index: 1;
+}
+
+#background-nav {
+    z-index: 2;
+    background-color: #121413;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+}
+
+#section-landing {
+    z-index: 3;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4),
                                       rgba(0, 0, 0, 0.4)),
 
-                        url(../assets/city-1.jpg);
+                        url(../assets/forest-3.jpeg);
     background-position: center;
-    height: 700px;
+    height: 100vh;
     color: #FFFFFF;
+}
+
+#section-header {
+    z-index: 4;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 #section-iphone {
@@ -97,7 +118,7 @@ body
 
                         url(../assets/music_1.jpg);
     background-position: center;
-    align-items: flex-end; /* squash text to bot */
+    justify-content: flex-end; /* squash text to bot */
     height: 700px;
 }
 
@@ -110,6 +131,19 @@ body
 
 }
 
+.flex-vert {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;  /*Center on x axis*/ 
+    align-content: center; /* Squash all to middle */
+    align-items: center; /* Center on y axis */
+}
+
+.flex-horiz {
+    display: flex;
+}
+
 .image-iphone {
     max-height: 100%;
     max-width: 30%;
@@ -120,31 +154,34 @@ body
     max-height: 60%;
 }
 
-h1, h2, h3, h4, h5{
-    font-weight: lighter;
-    margin-top: 0.00em;
-    margin-bottom: 0.67em;
-    width: 100%;
+.line {
+    background-color: white;
+    margin: 20px;
+    width: 120px;
+    height: 1px;
+}
+
+.line span {
+    position: relative;
+    top: -10px;
+    background: rgb(239, 71, 35);
+    padding: 0px 20px;
 }
 
 /* Nav bar items */
 #section-header a {
     text-decoration: none;
-    font-weight: lighter;
-    letter-spacing: 1.5px;
+    /*letter-spacing: 1.5px;*/
     display: block;
-    padding: 2em;
-    color: #000000;
+    padding: 1.2em;
+    color: #CCCCCC;
 
-    transition: background 0.2s linear;
+    transition: color 0.2s ease;
 }
 
 #section-footer a {
-    font-family: Lato;
     text-decoration: none;
-    font-weight: lighter;
-    letter-spacing: 1.5px;
-    font-size: 75%;
+    /*letter-spacing: 1.5px;*/
     display: block;
     padding-right: 2em;
     padding-left: 2em;
@@ -160,8 +197,8 @@ h1, h2, h3, h4, h5{
     }
 
 #section-header a:hover {
-    background: #8D847E;
-    color: #F4F3F3;
+    /*background: #8D847E;*/
+    color: darkgray;
 }
 
 #section-footer a:hover {
