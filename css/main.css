@@ -76,12 +76,12 @@ h1, h2, h3, h4, h5, h6 {
     height: 60px;
 }
 
+/*../assets/forest-3-small.jpeg*/
 #section-landing {
     z-index: 3;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4),
                                       rgba(0, 0, 0, 0.4)),
-
-                        url(../assets/forest-3-small.jpeg);
+                        url(https://unsplash.it/g/1920/1080?random);
     background-position: center;
     height: 100vh;
     color: #FFFFFF;
