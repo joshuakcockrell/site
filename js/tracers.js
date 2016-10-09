@@ -22,9 +22,6 @@ var changed = function(newValue) {
 
 var gui = new dat.GUI();
 gui.add(settings, 'pointSize', 1, 15).onChange(changed);
-// gui.add(settings, 'emitterCount', 1, 10000).onChange(changed);
-// gui.add(settings, 'particleCount', 1, 50000).onChange(changed);
-// gui.add(settings, 'particleRefresh', 1, 2000).onChange(changed); // how many groups count is divided into
 
 // connect to dom
 gui.domElement.id = 'gui';
