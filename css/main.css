@@ -80,8 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 #section-landing {
     z-index: 3;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4),
-                                      rgba(0, 0, 0, 0.4)),
-    url(https://unsplash.it/g/1920/1080?random),url(../assets/forest-3-small.jpeg);
+                                      rgba(0, 0, 0, 0.4)),url(../assets/forest-3-small.jpeg);
 
     /* Random Unsplash photo */
     /*url(https://unsplash.it/g/1920/1080?random),*/
