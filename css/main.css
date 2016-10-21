@@ -110,20 +110,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #section-stars {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.05),
-                                      rgba(0, 0, 0, 0.05)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1),
+                                      rgba(0, 0, 0, 0.1)),
                         url(../assets/stars-1.jpg);
     background-position: center;
+    padding-top: 50px;
+    justify-content: flex-start;
     height: 700px;
 }
 
 #section-music {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.0),
-                                      rgba(0, 0, 0, 0.4)),
-
-                        url(../assets/music_1.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../assets/music_1.jpg);
     background-position: center;
-    justify-content: flex-end; /* squash text to bot */
+    padding-top: 50px;
+    justify-content: flex-start;
     height: 700px;
 }
 
