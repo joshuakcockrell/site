@@ -41,6 +41,21 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.67em;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px dotted inherit;
+}
+
+.link-underline {
+    border-bottom: 1px dotted #555;
+}
+
+.link-underline:hover {
+    color: #2980b9;
+    border-bottom: 1px dotted #2980b9;
+}
+
 .text-name {
     font-weight: 500;
     font-family: Open Sans;
@@ -54,6 +69,8 @@ h1, h2, h3, h4, h5, h6 {
 
     background-size: cover;
 }
+
+
 
 /* All nav bars */
 .section-nav {
@@ -76,7 +93,6 @@ h1, h2, h3, h4, h5, h6 {
     height: 60px;
 }
 
-/*../assets/forest-3-small.jpeg*/
 #section-landing {
     z-index: 3;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4),
@@ -110,8 +126,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #section-stars {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1),
-                                      rgba(0, 0, 0, 0.1)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3),
+                                      rgba(0, 0, 0, 0.3)),
                         url(../assets/stars-1.jpg);
     background-position: center;
     padding-top: 50px;
@@ -128,12 +144,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #section-footer {
-    background-color: #121413;
-    min-height: 100px;
+    background-color: #141414;
+}
 
+#section-footer-links {
     justify-content: center;
     align-items: center;
 
+    min-height: 100px;
+}
+
+#section-footer-code {
+    margin: 10px;
+    color: #555;
 }
 
 .flex-vert {
@@ -173,6 +196,12 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0px 20px;
 }
 
+#icon-diamond {
+    color: #c0392b;
+    font-size: 2em;
+    margin: 20px;
+}
+
 /* Nav bar items */
 #section-header a {
     text-decoration: none;
@@ -184,7 +213,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: color 0.2s ease;
 }
 
-#section-footer a {
+#section-footer-links a {
     text-decoration: none;
     color: #555;
     font-weight: 300;
@@ -195,17 +224,19 @@ h1, h2, h3, h4, h5, h6 {
     border-right: 1px solid rgba(255,255,255,0.3);
 }
 
-#section-footer li:last-of-type a {
-        border-right: none;
-    }
+#section-footer-links li:last-of-type a {
+    border-right: none;
+}
 
 #section-header a:hover {
     color: darkgray;
 }
 
-#section-footer a:hover {
+#section-footer-links a:hover {
     color: #777;
 }
+
+
 
 /* Small Screens */
 @media all and (max-width: 750px) {
@@ -219,13 +250,13 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 300%;
     }
 
-    #section-footer {
+    #section-footer-links {
         -webkit-flex-flow: column wrap;
         flex-flow: column wrap;
         padding: 0;
     }
 
-    #section-footer a {
+    #section-footer-links a {
         border-right: none;
     }
 
@@ -233,6 +264,18 @@ h1, h2, h3, h4, h5, h6 {
         border-bottom: none;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* dat gui element */
 #gui { 
