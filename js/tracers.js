@@ -255,7 +255,7 @@ function Box()
         this.speed = 25.0;
         this.velocity = [(Math.random() * 2.0 - 1.0) / 30, (Math.random() * 2.0 - 1.0) / 30];
         this.acceleration = [(Math.random() * 2.0 - 1.0) / 30, (Math.random() * 2.0 - 1.0) / 30];
-        this.color = [0,0,0,1];
+        this.color = [1,1,1,1];
     }
 
     this.updateColor = function(){
