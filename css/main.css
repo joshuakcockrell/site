@@ -18,7 +18,7 @@ A6958C
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;vertical-align: baseline;background: transparent;}
 
 html, body {
-    background-color:#F4F3F3; /*#F3E6DD;*/
+    background-color: #121413; /*#F3E6DD;*/
     margin:0;
     overflow-x: hidden;
     text-align: center;
@@ -186,15 +186,13 @@ h1, h2, h3, h4, h5, h6 {
 
 #section-footer a {
     text-decoration: none;
-    /*letter-spacing: 1.5px;*/
+    color: #555;
+    font-weight: 300;
     display: block;
     padding-right: 2em;
     padding-left: 2em;
     border-top: 3em;
-    color: #CCCCCC;
-
-    /*border-left: 1.5px solid rgba(255,255,255,0.3); */
-    border-right: 1px solid rgba(255,255,255,0.3); 
+    border-right: 1px solid rgba(255,255,255,0.3);
 }
 
 #section-footer li:last-of-type a {
@@ -202,12 +200,11 @@ h1, h2, h3, h4, h5, h6 {
     }
 
 #section-header a:hover {
-    /*background: #8D847E;*/
     color: darkgray;
 }
 
 #section-footer a:hover {
-    color: #F4F3F3;
+    color: #777;
 }
 
 /* Small Screens */
