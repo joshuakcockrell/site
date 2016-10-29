@@ -237,6 +237,59 @@ a {
     color: #777;
 }
 
+.container-iphone {
+    height: 425px;
+    min-width: 400%;
+    display: flex;
+    justify-content: center; /* all in a row */
+}
+
+
+
+#section-projects {
+    padding: 20px;
+    flex-direction: row;
+    background-color: #F3F3F3;
+}
+
+#section-projects h2 {
+    width: 100%;
+    color: black;
+    margin: 0.75em;
+}
+
+.container-project {
+    background-color: #FBFBFB;
+    margin: 5px;
+    max-width: 300px;
+    color: black;
+    box-shadow: 0 0.05em 0.15em 0 rgba(0, 0, 0, 0.05);
+}
+
+.container-project img {
+    width: 300px;
+    height: 175px;
+    object-fit: cover;
+}
+
+.container-project video {
+    width: 300px;
+    height: 175px;
+    object-fit: fill;
+}
+
+.title-project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    padding: 5px;
+}
+
+
+
+
+
 
 
 /* Small Screens */
@@ -283,13 +336,6 @@ a {
     position: fixed; 
     top: 82px; 
     right: 0px;
-}
-
-.container-iphone {
-    height: 425px;
-    min-width: 400%;
-    display: flex;
-    justify-content: center; /* all in a row */
 }
 
 /* Three images as a group */
