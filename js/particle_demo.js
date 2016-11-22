@@ -1,20 +1,4 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @joshuakcockrell
- Unwatch 1
-  Star 0
- Fork 0 joshuakcockrell/site
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs  Settings
-Branch: gh-pages Find file Copy pathsite/js/particles.js
-be54886  26 days ago
-@joshuakcockrell joshuakcockrell Updated site colors and footer
-1 contributor
-RawBlameHistory     
-Executable File  298 lines (223 sloc)  7.18 KB
+
 (function(){
 
 var canvas, gl, program;
