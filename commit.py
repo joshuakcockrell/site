@@ -36,13 +36,14 @@ def run():
 	# Commit
 	# os.system('git status')
 	os.system('git add -A')
-	time.sleep(10)
+	time.sleep(1)
 	os.system('git commit -m ' + commitWord)
-	time.sleep(10)
+	time.sleep(5)
 	os.system('git push')
 
 print 'Running scheduler..'
 while True:
+	print ''
 	print 'Ran at: ' + time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
 	run()
 	wait = 60 * 60 * 24 * random.uniform(0.5, 2)
