@@ -20,6 +20,9 @@ def run():
 	randomWord = urllib2.urlopen(apiUrl).read()
 	commitWord = random.choice(words)
 
+	print randomWord
+	print commitWord
+
 	# Wipe contents of file
 	open('test.txt', 'w').close()
 
