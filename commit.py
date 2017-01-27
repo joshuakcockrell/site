@@ -47,12 +47,15 @@ secInDay = 60 * 60 * 24
 def sleepLoop(waitSeconds):
 
 	while True:
-		waitSeconds -= 1
 
 		print("Days till next commit: " + str(waitSeconds / secInDay)[:7])
 		sys.stdout.write("\033[F") # Cursor up one line
 		sys.stdout.write("\033[K") # Clear to the end of line
 		time.sleep(1)
+
+		waitSeconds -= 1
+		if waitSeconds < 0:
+			return
 
 
 print 'Starting scheduler..'
