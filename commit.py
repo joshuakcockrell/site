@@ -36,10 +36,8 @@ def run():
 
 	# Commit
 	os.system('git status')
-	time.sleep(2)
-	os.system('git add -A')
-	time.sleep(2)
-	os.system('git commit -m ' + commitWord)
+	time.sleep(5)
+	os.system('git commit -a -m ' + commitWord)
 	time.sleep(5)
 	os.system('git push')
 
