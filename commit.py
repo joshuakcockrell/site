@@ -36,6 +36,7 @@ def run():
 
 	# Commit
 	os.system('git status')
+	time.sleep(1)
 	os.system('git add -A')
 	time.sleep(1)
 	os.system('git commit -m ' + commitWord)
@@ -61,7 +62,7 @@ def sleepLoop(waitSeconds):
 print 'Starting scheduler..'
 while True:
 	run()
-	waitSeconds = secInDay * random.uniform(0.5, 2)
+	waitSeconds = secInDay * random.uniform(0.2, 0.7)
 
 	sleepLoop(waitSeconds)
 
