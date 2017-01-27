@@ -44,28 +44,31 @@ def run():
 
 secInDay = 60 * 60 * 24
 
-def sleepLoop(waitSeconds):
+def sleepLoop(startTime, waitSeconds):
 
 	while True:
 
-		print("Days till next commit: " + str(waitSeconds / secInDay)[:7])
+		curTime = datetime.now()
+		diff = curTime - startTime
+		remainingSeconds = waitSeconds - diff.seconds
+
+		print("Days till next commit: " + str(remainingSeconds / secInDay)[:7])
 		sys.stdout.write("\033[F") # Cursor up one line
 		sys.stdout.write("\033[K") # Clear to the end of line
 		time.sleep(1)
 
-		waitSeconds -= 1
-		if waitSeconds < 0:
+		if remainingSeconds < 0:
 			return
 
 
 print 'Starting scheduler..'
 while True:
 	run()
-	waitSeconds = secInDay * random.uniform(0.2, 0.7)
 
 	startTime = datetime.now()
+	waitSeconds = secInDay * random.uniform(0.2, 0.7)
 
-	sleepLoop(waitSeconds)
+	sleepLoop(startTime, waitSeconds)
 
 
 
