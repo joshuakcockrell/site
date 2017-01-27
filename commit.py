@@ -2,6 +2,7 @@ import os
 import urllib2
 import random
 import time
+from datetime import datetime
 import sys
 
 apiUrl = 'http://www.setgetgo.com/randomword/get.php'
@@ -61,6 +62,8 @@ print 'Starting scheduler..'
 while True:
 	run()
 	waitSeconds = secInDay * random.uniform(0.2, 0.7)
+
+	startTime = datetime
 
 	sleepLoop(waitSeconds)
 
