@@ -63,7 +63,7 @@ while True:
 	run()
 	waitSeconds = secInDay * random.uniform(0.2, 0.7)
 
-	startTime = datetime
+	startTime = datetime.now()
 
 	sleepLoop(waitSeconds)
 
