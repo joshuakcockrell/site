@@ -1,2 +1,2 @@
 
-http://joshuakcockrell.com
+http://joshcockrell.com
