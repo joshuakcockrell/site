@@ -41,13 +41,13 @@ def run():
 
 	# Commit
 	os.system('git status -s')
-	time.sleep(5)
+	time.sleep(4)
 	os.system('git commit -a -m ' + commitWord)
-	time.sleep(5)
+	time.sleep(4)
 	os.system('git status -s')
-	time.sleep(5)
+	time.sleep(4)
 	os.system('git push')
-	time.sleep(5)
+	time.sleep(4)
 	os.system('git status -s')
 
 secInDay = 60 * 60 * 24
