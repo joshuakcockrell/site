@@ -25,6 +25,7 @@ words = ['uhh', 'what the..', 'okay', 'hi there'
 def run():
 
 	print ''
+	print ''
 	print 'Ran at: ' + time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
 
 	# Get random words
