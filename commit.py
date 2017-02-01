@@ -16,7 +16,10 @@ words = ['uhh', 'what the..', 'okay', 'hi there'
 		 'all I do is bleh', 'dont look at me',
 		 'not sure what this is', 'uhhh', 'uhhhh',
 		 'my site is legit', 'good', 'ohh', 'hi',
-		 'k', 'stuff', 'yessir', 'this is a commit',]
+		 'k', 'stuff', 'yessir', 'this is a commit',
+		 'merge', 'merge some stuff', 'merged yep', 
+		 'I should know what this is', 'here ya go',
+		 'is umm yeah']
 
 
 def run():
@@ -36,11 +39,15 @@ def run():
 	    myfile.write(randomWord)
 
 	# Commit
-	os.system('git status')
+	os.system('git status -s')
 	time.sleep(5)
 	os.system('git commit -a -m ' + commitWord)
 	time.sleep(5)
+	os.system('git status -s')
+	time.sleep(5)
 	os.system('git push')
+	time.sleep(5)
+	os.system('git status -s')
 
 secInDay = 60 * 60 * 24
 
