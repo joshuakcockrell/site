@@ -66,8 +66,8 @@ while True:
 	run()
 
 	startTime = datetime.now()
-	# waitSeconds = secInDay * random.uniform(0.2, 0.7)
-	waitSeconds = secInDay * random.uniform(0.0001, 0.0005)
+	waitSeconds = secInDay * random.uniform(0.2, 0.7)
+	# waitSeconds = secInDay * random.uniform(0.0001, 0.0005)
 
 	sleepLoop(startTime, waitSeconds)
 
