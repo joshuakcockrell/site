@@ -19,7 +19,14 @@ words = ['uhh', 'what the..', 'okay', 'hi there'
 		 'k', 'stuff', 'yessir', 'this is a commit',
 		 'merge', 'merge some stuff', 'merged yep', 
 		 'I should know what this is', 'here ya go',
-		 'is umm yeah']
+		 'is umm yeah', 'Added profile image', 'Updated pic', 
+		 'Updated thumbnail image', 'Added backup image', 
+		 'Update meta', 'Update particle_demo.js', 
+		 'Updated css', 'Update CNAME', 
+		 'Updated site colors and footer', 
+		 'Added link to projects', 'Updated resume', 
+		 'Fixed broken link', 'Smaller diamond', 
+		 'Removed a bunch of junk files']
 
 
 def run():
