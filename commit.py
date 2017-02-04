@@ -24,31 +24,39 @@ words = ['uhh', 'what the..', 'okay', 'hi there'
 
 def run():
 
-	print ''
-	print ''
-	print 'Ran at: ' + time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
+	try:
+		print ''
+		print ''
+		print 'Ran at: ' + time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
 
-	# Get random words
-	randomWord = urllib2.urlopen(apiUrl).read()
-	commitWord = random.choice(words)
+		# Get random words
+		# randomWord = urllib2.urlopen(apiUrl).read()
+		commitWord = random.choice(words)
 
-	# Wipe contents of file
-	open('test.txt', 'w').close()
+		# Wipe contents of file
+		open('test.txt', 'w').close()
 
-	# Write to file
-	with open('test.txt', 'a') as myfile:
-	    myfile.write(randomWord)
+		# Write to file
+		with open('test.txt', 'a') as myfile:
+		    myfile.write(commitWord)
 
-	# Commit
-	os.system('git status -s')
-	time.sleep(4)
-	os.system('git commit -a -m ' + commitWord)
-	time.sleep(4)
-	os.system('git status -s')
-	time.sleep(4)
-	os.system('git push')
-	time.sleep(4)
-	os.system('git status -s')
+		# Commit
+		os.system('git status -s')
+		time.sleep(4)
+		os.system('git commit -a -m ' + commitWord)
+		time.sleep(4)
+		os.system('git status -s')
+		time.sleep(4)
+		os.system('git push')
+		time.sleep(4)
+		os.system('git status -s')
+
+	except:
+		print("Unexpected error:", sys.exc_info()[0])
+		time.sleep(10)
+
+		# Try again
+		run()
 
 secInDay = 60 * 60 * 24
 
