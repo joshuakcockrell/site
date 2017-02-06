@@ -48,14 +48,22 @@ def run():
 		    myfile.write(commitWord)
 
 		# Commit
+		print '$ git status -s'
 		os.system('git status -s')
 		time.sleep(4)
-		os.system('git commit -a -m ' + commitWord)
+		print '$ git add -A'
+		os.system('git add -A')
 		time.sleep(4)
+		print '$ git commit -m ' + commitWord
+		os.system('git commit -m ' + commitWord)
+		time.sleep(4)
+		print '$ git status -s'
 		os.system('git status -s')
 		time.sleep(4)
+		print '$ git push'
 		os.system('git push')
 		time.sleep(4)
+		print '$ git status -s'
 		os.system('git status -s')
 
 	except:
