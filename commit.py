@@ -55,7 +55,7 @@ def run():
 		os.system('git add -A')
 		time.sleep(4)
 		print '$ git commit -m ' + commitWord
-		os.system('git commit -m ' + commitWord)
+		os.system('git commit -m \"' + commitWord + "\"")
 		time.sleep(4)
 		print '$ git status -s'
 		os.system('git status -s')
