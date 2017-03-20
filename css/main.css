@@ -297,10 +297,14 @@ a {
 
 .player-spotify {
     width: 100%;
-    height: 280px;
+    height: 80px;
 }
 
-
+.container-spotify {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
 
 
 
