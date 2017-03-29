@@ -84,8 +84,11 @@ def sleepLoop(startTime, waitSeconds):
 		remainingSeconds = waitSeconds - diff.seconds
 
 		print("Days till next commit: " + str(remainingSeconds / secInDay)[:7])
+
+		# Print in place
 		sys.stdout.write("\033[F") # Cursor up one line
 		sys.stdout.write("\033[K") # Clear to the end of line
+
 		time.sleep(1)
 
 		if remainingSeconds < 0:
@@ -97,7 +100,7 @@ while True:
 	run()
 
 	startTime = datetime.now()
-	waitSeconds = secInDay * random.uniform(0.2, 1.0)
+	waitSeconds = secInDay * random.uniform(0.1, 0.5) # Time range
 	# waitSeconds = secInDay * random.uniform(0.0001, 0.0005)
 
 	sleepLoop(startTime, waitSeconds)
