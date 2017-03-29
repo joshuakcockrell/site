@@ -32,6 +32,9 @@ words = ['uhh', 'what the..', 'okay', 'hi there'
 def run():
 
 	try:
+		# Wait 30 seconds to wait for network to connect
+		time.sleep(30)
+
 		print ''
 		print ''
 		print 'Ran at: ' + time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
@@ -89,6 +92,7 @@ def sleepLoop(startTime, waitSeconds):
 		sys.stdout.write("\033[F") # Cursor up one line
 		sys.stdout.write("\033[K") # Clear to the end of line
 
+		# Wait 1 second
 		time.sleep(1)
 
 		if remainingSeconds < 0:
