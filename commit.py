@@ -26,7 +26,13 @@ words = ['uhh', 'what the..', 'okay', 'hi there'
 		 'Updated site colors and footer', 
 		 'Added link to projects', 'Updated resume', 
 		 'Fixed broken link', 'Smaller diamond', 
-		 'Removed a bunch of junk files']
+		 'Removed a bunch of junk files', 'update album info', 
+		 'add song link', 'update spotify', 'media player', 
+		 'soundcloud', 'linkedin', 'broken player', 
+		 'followers link', 'profile pic', 'profile', 
+		 'assets folder', 'assets changes', 'changed assets',
+		 'work on static files', 'update static files', 
+		 'remove static files']
 
 
 def run():
@@ -103,12 +109,11 @@ print 'Starting scheduler..'
 while True:
 	run()
 
-	startTime = datetime.now()
-	waitSeconds = secInDay * random.uniform(0.1, 0.5) # Time range
+	waitSeconds = secInDay * random.uniform(0.1, 0.4) # Time range
 	# waitSeconds = secInDay * random.uniform(0.0001, 0.0005)
 
 	# Wait for a certain amount of time
-	sleepLoop(startTime, waitSeconds)
+	sleepLoop(datetime.now(), waitSeconds)
 
 
 
