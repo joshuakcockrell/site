@@ -103,6 +103,7 @@ while True:
 	waitSeconds = secInDay * random.uniform(0.1, 0.5) # Time range
 	# waitSeconds = secInDay * random.uniform(0.0001, 0.0005)
 
+	# Wait for a certain amount of time
 	sleepLoop(startTime, waitSeconds)
 
 
