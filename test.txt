@@ -1,1 +1,1 @@
-25000 particles
+Update particle_demo.js
