@@ -1,1 +1,1 @@
-Modified the landing page image
+Update particle_demo.js
