@@ -1,1 +1,1 @@
-Looks good on mobile
+Remove index from link
