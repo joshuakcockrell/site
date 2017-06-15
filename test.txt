@@ -1,1 +1,1 @@
-remove static files
+merge
