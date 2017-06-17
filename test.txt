@@ -1,1 +1,1 @@
-Looks good on mobile
+work on static files
