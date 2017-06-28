@@ -1,1 +1,1 @@
-Word
+work on static files
