@@ -1,1 +1,1 @@
-MS Recommendation
+Optimizations to animate boxes
