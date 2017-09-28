@@ -168,8 +168,7 @@ print 'Starting scheduler..'
 while True:
 	run()
 
-	waitSeconds = secInDay * random.uniform(0.1, 0.4) # Time range
-	# waitSeconds = secInDay * random.uniform(0.0001, 0.0005)
+	waitSeconds = secInDay * random.choice([2,4,1,1,0.2,0.2,0.2,0.2,0.2]) # Time ranges
 
 	# Wait for a certain amount of time
 	sleepLoop(datetime.now(), waitSeconds)
