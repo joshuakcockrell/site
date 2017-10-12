@@ -227,12 +227,12 @@ a {
 #section-footer-links a {
     text-decoration: none;
     color: #555;
+    font-size: 25px;
     font-weight: 300;
     display: block;
-    padding-right: 2em;
-    padding-left: 2em;
+    padding-right: .7em;
+    padding-left: .7em;
     border-top: 3em;
-    border-right: 1px solid rgba(255,255,255,0.3);
 }
 
 #section-footer-links li:last-of-type a {
