@@ -7,11 +7,7 @@ A6958C
 404142 -- Darkest
 */
 
-/*@import url(https://fonts.googleapis.com/css?family=Muli:400,300);*/
-/*@import url(https://fonts.googleapis.com/css?family=Oswald:400,700);*/
-
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:700,600,500,400,300);
-/*@import url(https://fonts.googleapis.com/css?family=Roboto:900,700,100,300,400,500);*/
 @import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,900,700);
 
 /* CSS CLEAR DEFAULTS */
@@ -58,7 +54,7 @@ a {
 
 .text-name {
     font-weight: 500;
-    font-family: Open Sans;
+    font-family: Open Sans, arial;
 }
 
 .section-main {
@@ -133,7 +129,7 @@ a {
 #section-stars {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3),
                                       rgba(0, 0, 0, 0.3)),
-                        url(../assets/stars-1.jpg);
+                        url(../assets/stars-1-min.jpg);
     background-position: center;
     padding-top: 50px;
     justify-content: flex-start;
