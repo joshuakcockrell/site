@@ -31,9 +31,28 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: Lato, sans-serif;
-    font-size: 500%;
     font-weight: 100;
-    margin-top: 0.00em;
+    margin-top: 0.10em;
+    margin-bottom: 0.10em;
+}
+
+h1, h2 {
+    font-size: 500%;
+}
+
+h3 {
+    font-size: 400%;
+}
+
+h4 {
+    font-size: 300%;
+}
+
+h5 {
+    font-size: 200%;
+}
+
+.title-section {
     margin-bottom: 0.67em;
 }
 
@@ -115,6 +134,11 @@ a {
     width: 100%;
 }
 
+.box-title {
+    border-style: solid;
+    border-width: 1px;
+}
+
 #section-iphone {
     background-color: #121413;
     height: 750px;
@@ -169,6 +193,12 @@ a {
     align-items: center; /* Center on y axis */
 }
 
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .flex-horiz {
     display: flex;
 }
@@ -212,7 +242,7 @@ a {
 /* Nav bar items */
 #section-header a {
     text-decoration: none;
-    /*letter-spacing: 1.5px;*/
+    min-width: 70px;
     display: block;
     padding: 1.2em;
     color: #CCCCCC;
@@ -335,8 +365,28 @@ a {
 
 
 
+/*******************/
+/* Hire Me Section */
+/*******************/
+.text-bold {
+    font-weight: 400;
+}
 
+.title-list {
+    font-weight: 300;
+}
 
+.container-example {
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #333;
+    border-radius: 8px;
+}
+
+.content-max {
+    max-width: 900px;
+}
 
 
 
