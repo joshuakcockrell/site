@@ -138,6 +138,8 @@ a {
 .box-title {
     border-style: solid;
     border-width: 1px;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 #section-iphone {
@@ -299,8 +301,13 @@ a {
     margin: 5px;
     max-width: 300px;
     color: black;
-    transition: box-shadow 0.2s ease;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ddd;
+
     box-shadow: 0 0.05em 0.15em 0 rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease;
 }
 
 .container-project:hover {
