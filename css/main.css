@@ -390,6 +390,7 @@ a {
 }
 
 .container-example {
+    border: solid 1px #444;
     max-width: 400px;
     padding: 10px;
     margin: 10px;
