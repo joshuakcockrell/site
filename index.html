@@ -304,6 +304,13 @@
 
 			ga('create', 'UA-68565272-1', 'auto');
 			ga('send', 'pageview', location.pathname);
+
+			window.addEventListener("load",function() {
+			    setTimeout(function(){
+			        // This hides the address bar:
+			        window.scrollTo(0, 1);
+			    }, 0);
+			});
 		</script>
 
 
