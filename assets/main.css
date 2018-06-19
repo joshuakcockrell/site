@@ -45,6 +45,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2
     position: absolute;
     bottom: 0px;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 .header-car {
