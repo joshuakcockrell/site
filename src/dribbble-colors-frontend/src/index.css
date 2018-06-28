@@ -1,0 +1,43 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#nav-bar {
+    z-index: 2;
+    position: relative;
+    height: 10vh;
+    min-height: 35px;
+    display: flex;
+    align-items: center;
+    background-color: #414141;
+}
+
+#title {
+	font-family: helvetica neue;
+    font-weight: normal;
+    font-size: 40px;
+    padding: 10px;
+    padding-right: 3px;
+    color: #F08688;
+}
+
+#title-sub {
+	font-family: Lato, sans-serif;
+	font-weight: 100;
+    font-size: 30px;
+    color: #F08688;
+}
+
+#ship {
+    height: 50px;
+}
+
+@media all and (max-width: 750px) {
+	#nav-bar {
+		justify-content: center;
+	}
+}
