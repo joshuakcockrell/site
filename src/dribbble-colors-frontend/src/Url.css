@@ -1,0 +1,14 @@
+.url {
+    color: white;
+    text-decoration: initial;
+}
+
+.tweet-button {
+	min-width: 200px;
+}
+
+@media all and (max-width: 750px) {
+	.url {
+		display: none;
+	}
+}

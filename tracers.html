@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tracers</title>
+		<meta name="viewpoint" content="width=device-width, initial-scale=1">
+		<meta name="description" content="WebGL tracer effects">
+		<meta charset="UTF-8">
+
+		<link rel="stylesheet" href="css/main.css"> <!-- CSS before JS! -->
+
+		<script type="text/javascript" src="js/dat.gui.min.js"></script>
+
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-68565272-1', 'auto');
+			ga('send', 'pageview', location.pathname);
+		</script>
+
+	</head>
+
+	<!-- Body -->
+	<body class="webgl-body">
+
+		<!-- HEADER -->
+		<ul class="section-nav" id="section-header">
+  			<li><a href="/">Home</a></li>
+  			<li><a href="joshua_cockrell_resume.pdf" target="_blank">Resume</a></li>
+		</ul>
+
+
+		<div id='gui'></div>
+		<canvas id='canvas'></canvas>
+
+		<!-- SHADERS -->
+		<!-- SHADERS -->
+		<!-- SHADERS -->
+
+		<!-- Vertex Shader -->
+        <script id="vertex-shader" type="x-shader/x-vertex">
+			attribute vec2 a_position;
+			uniform float u_pointSize;
+			uniform vec2 u_resolution;
+			void main() {
+				// convert the rectangle from pixels to 0.0 to 1.0
+				vec2 zeroToOne = a_position / u_resolution;
+
+				// convert from 0->1 to 0->2
+				vec2 zeroToTwo = zeroToOne * 2.0;
+
+				gl_Position = vec4(zeroToTwo*2.0 - 1.0, 0, 1); //ofset our positions
+				gl_PointSize = u_pointSize;
+			}
+		</script>
+
+        <!-- Fragment Shader -->
+        <script id="fragment-shader" type="x-shader/x-fragment">
+			precision mediump float;
+			uniform vec4 u_color;
+			 
+			void main() {
+			   gl_FragColor = u_color;
+			}
+		</script>
+
+
+        <script async="async" src="js/tracers.js"></script>
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

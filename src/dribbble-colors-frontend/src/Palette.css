@@ -1,0 +1,20 @@
+#palette {
+	height: 90vh;
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#splash {
+	font-weight: lighter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+@media all and (max-width: 750px) {
+	#palette {
+		flex-direction: column;
+	}
+}

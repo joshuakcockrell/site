@@ -1,99 +1,320 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Boxes</title>
-		<meta name="description" content="">
-		<meta name="viewpoint" content="width=device-width, initial-scale=1">
-		<meta name="description" content="This is the description rite here.">
+		<title>Josh Cockrell</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Josh Cockrell is a web designer, iPhone developer, backend programmer, and EDM producer. Word.">
+		<meta charset="UTF-8">
+		<link rel="icon" href="favicon.ico">
 
-		<link rel="stylesheet" href="css/main.css">
+		<meta property="og:type" content="profile">
+		<meta property="og:title" content="Josh Cockrell">
+		<meta property="og:url" content="http://joshcockrell.com">
+		<meta property="og:image" content="http://joshcockrell.com/assets/main_tile.jpg">
+		<meta property="profile:first_name" content="Josh">
+		<meta property="profile:last_name" content="Cockrell">
 
 	</head>
-	<style>
-		body {background-color:#3E474A;}
-	</style>
 
 	<!-- Body -->
 	<body>
 
-		<ul class="navigation">
-  			<li><a href="#">Home</a></li>
-  			<li><a href="#">About</a></li>
-  			<li><a href="#">Colors</a></li>
-  			<li><a href="#">Boxes</a></li>
-  			<li><a href="#">Projects</a></li>
-  			<li><a href="#">Contact</a></li>
+		<div id="background-nav"></div>
+
+		<!-- HEADER -->
+		<ul class="section-nav" id="section-header">
+  			<li><a href="/">Home</a></li>
+  			<li><a href="/#section-projects">Projects</a></li>
+  			<li><a href="/#section-hire">Hire Me</a></li>
+  			<li><a href="resume" target="_blank">Resume</a></li>
+  			<li class="container-spotify">
+				<iframe src="https://embed.spotify.com/follow/1/?uri=spotify:artist:0T24zL5DjolHE3ssni0rdK&amp;size=detail&amp;theme=dark&amp;show-count=0" scrolling="no" frameborder="0" style="border:none;overflow:hidden;width: 170px;" allowtransparency="true"></iframe>
+			</li>
 		</ul>
 
-		<div id="section">
+		<div class="section-main flex-vert" id="section-landing">
 
-			<h2>
-				Boxes
-			</h2>
+			<div class="box-title">
+			    <h1 class="text-name">JOSH</h1>
+			                
+			    <h1 class="text-name">COCKRELL</h1>
 
-			<canvas id='canvas' oncontextmenu='return false;'></canvas>
+			    <div class="flex-horiz">
+					<div class="line"></div>
+					<span class="flex-vert">Personal Site</span>
+				<div class="line"></div>
+			</div>
+    
+    
+		</div>
 
-			<p>
-				Welcome to the best website in the world.
-				<br>
-				<br>
-			</p>
 
-		</div> 
 
-		<!-- SHADERS -->
-		<!-- SHADERS -->
-		<!-- SHADERS -->
+		</div>
 
-		<!-- Vertex Shader -->
+		<div id="group-page">
+			<div class="section-main flex-vert" id="section-iphone">
+				<h2 class="title-section">iPhone Developer</h2>
 
-        <script id="vertex-shader" type="x-shader/x-vertex">
-			attribute vec2 a_position;
-			uniform vec2 u_resolution;
-			void main() {
-				// convert the rectangle from pixels to 0.0 to 1.0
-				vec2 zeroToOne = a_position / u_resolution;
+				<div class="container-iphone">
+					<div class="group-iphone">
+						<img class="image-iphone" src="assets/hydro_1_239_501.jpg">
+						<img class="image-iphone" src="assets/hydro_2_239_501.jpg"> 
+						<img class="image-iphone" src="assets/hydro_3_239_501.jpg">
+					</div>
+					<div class="group-iphone">
+						<img class="image-iphone" src="assets/city_1_228x600.jpg">
+					</div>
+				</div>
+			</div>
 
-				// convert from 0->1 to 0->2
-				vec2 zeroToTwo = zeroToOne * 2.0;
+			<div class="section-main flex-vert" id="section-web">
+				<h2 class="title-section">Web Developer</h2>
 
-				gl_Position = vec4(zeroToTwo*2.0 - 1.0, 0, 1); //ofset our positions
-			}
+				<img class="image-web" src="assets/checkin_1.jpg">
+			</div>
+
+			<div class="section-main flex-vert" id="section-music">
+				<h2>Electronic Music Producer</h2>
+				<!-- <iframe class="player-spotify" src="https://embed.spotify.com/?uri=spotify%3Aartist%3A0T24zL5DjolHE3ssni0rdK" frameborder="0" allowtransparency="true"></iframe> -->
+				<iframe class="player-spotify" src="https://open.spotify.com/embed/track/2Z99bCcr4z81U2TjAns3aL" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+				<!-- <iframe class="player-spotify" src="https://embed.spotify.com/?uri=spotify:album:6x0Z1Dt7pRilHuJ4VRHDJP" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> -->
+			</div>
+
+			<div class="section-main flex-vert" id="section-stars">
+				<h2>Student</h2>
+			</div>
+
+
+
+
+			<div class="section-main flex-vert section-projects" id="section-work">
+
+				<h2 class="title-section">Where I've Worked</h2>
+
+
+				<a target="_blank" href="https://tesla.com/" class="container-project">
+					<img src="./assets/work/logo-tesla.jpg">
+					<h3 class="title-project">Tesla</h3>
+				</a>
+
+				<a target="_blank" href="https://twitter.com/" class="container-project">
+					<img src="./assets/work/logo-twitter.jpg">
+					<h3 class="title-project">Twitter</h3>
+				</a>
+
+				<a target="_blank" href="http://www.adobe.com/" class="container-project">
+					<img src="./assets/work/logo-adobe.jpg">
+					<h3 class="title-project">Adobe</h3>
+				</a>
+
+				<a target="_blank" href="https://www.microsoft.com/en-us/cloud-platform/windows-server" class="container-project">
+					<img src="./assets/work/logo-microsoft.jpg">
+					<h3 class="title-project">Microsoft Windows Server</h3>
+				</a>
+
+				<a target="_blank" href="https://www.microsoft.com/en-us/windows/microsoft-edge" class="container-project">
+					<img src="./assets/work/logo-windows10.jpg">
+					<h3 class="title-project">Microsoft Edge Browser</h3>
+				</a>
+
+			</div>
+
+
+			<!-- <div class="section-main flex-vert section-projects" id="section-work-projects">
+
+				<h2 class="title-section">Corporate Projects</h2>
+
+				<a target="_blank" href="https://www.youtube.com/watch?v=zl2zwQ8aG50" class="container-project">
+					<img src="./assets/work/logo-adobe.jpg">
+					<h3 class="title-project">Adobe Analytics Map Viz</h3>
+				</a>
+
+				<a target="_blank" href="https://www.youtube.com/watch?v=zl2zwQ8aG50" class="container-project">
+					<img src="./assets/work/logo-twitter.jpg">
+					<h3 class="title-project">Twitter Longer Display Names</h3>
+				</a>
+
+				<a target="_blank" href="https://www.youtube.com/watch?v=zl2zwQ8aG50" class="container-project">
+					<img src="./assets/work/logo-twitter.jpg">
+					<h3 class="title-project">Twitter Share Extension UI</h3>
+				</a> -->
+
+
+
+			<div class="section-main flex-vert section-projects" id="section-projects">
+
+				<h2 class="title-section">Personal Projects</h2>
+
+				<a target="_blank" href="particles.html" class="container-project">
+					<video autoplay="" loop="">
+					  	<source src="./assets/projects/particles.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+  					<h3 class="title-project">WebGL Particle Effects</h3>
+				</a>
+
+				<a target="_blank" href="https://github.com/joshuakcockrell/fracas" class="container-project">
+					<img src="./assets/projects/fractal.jpg">
+					<h3 class="title-project">Python Fractal Generator</h3>
+				</a>
+
+				<a target="_blank" href="colors.html" class="container-project">
+					<video autoplay="" loop="">
+					  	<source src="./assets/projects/colors.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+  					<h3 class="title-project">WebGL Color Gamut</h3>
+				</a>
+
+				<a target="_blank" href="https://github.com/joshuakcockrell/color-tower-defense" class="container-project">
+					<video autoplay="" loop="">
+					  	<source src="./assets/projects/ctd.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+  					<h3 class="title-project">Color Tower Defense</h3>
+				</a>
+
+				<a target="_blank" href="http://paletteship.com/" class="container-project">
+					<video autoplay="" loop="">
+					  	<source src="./assets/projects/paletteship.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+  					<h3 class="title-project">Color Palette Generator</h3>
+				</a>
+
+				<a target="_blank" href="http://www.seattletimes.com/business/microsoft/microsoft-hackers-put-tech-to-good-use-for-local-nonprofits/" class="container-project">
+					<img src="./assets/projects/seattle.jpg">
+					<h3 class="title-project">Microsoft Hackathon</h3>
+				</a>
+
+				<a target="_blank" href="http://beatsperminuteship.com/" class="container-project">
+					<video autoplay="" loop="">
+					  	<source src="./assets/projects/bpm.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+  					<h3 class="title-project">Beats Per Minute Calculator</h3>
+				</a>
+
+				<a target="_blank" href="http://dev.byu.edu/" class="container-project">
+					<img src="./assets/projects/dev.jpg">
+					<h3 class="title-project">President: BYU Dev Club</h3>
+				</a>
+
+
+
+			</div>
+
+
+						<div class="section-main flex-vert" id="section-hire" style="padding: 40px;">
+
+				<div class="content-max">
+
+					<h2 class="title-section">Hire Me</h2>
+
+					<div class="content-text">
+					    
+					    <h3 class="text-bold">MVP Development</h3>
+					    <p>Fully functional MVP. Web or iOS App.<br>1 week turnaround. $40,000 flat fee.</p>
+					    
+					    <div>
+						    <div style="text-align: left; max-width: 500px;">
+								<h4 class="title-list">Features</h4>
+								<ul style="/* text-align: left; */font-size: small;padding-left: 2em;">
+									<li>Fully functioning MVP</li>
+									<li>App Store released iOS app or web app</li>
+									<li>Free scaling for first 100K users</li>
+									<li>Free technical support for 1 year</li>
+									<li>Fully custom designed UI</li>
+									<li>Custom Logo design</li>
+									<li>Includes functionality for user accounts</li>
+									<li>Maximum of 3 key feature pages (excluding sign in page)</li>
+								</ul>
+
+								<h4 class="title-list">Tech Details</h4>
+								<ul style="/* text-align: left; */font-size: small;padding-left: 2em;">
+									<li>State of the art Node.js backend</li>
+									<li>Reliable MySQL database</li>
+									<li>Code stored inside private Github repository</li>
+									<li>Deployed to Amazon Web Services with free scaling for first 100K users</li>
+									<li>New user account sign up/login endpoints</li>
+									<li>Backend secured through HTTPS</li>
+									<li>Website secured through HTTPS</li>
+									<li>Includes steps for your developers to make changes</li>
+									<li>Automatic backend deployment and build system using AWS CodeDeploy</li>
+									<li>Includes 1 set of content endpoints</li>
+									<li>Incorporates with your existing web domain or free custom domain</li>
+								</ul>
+						    </div>
+					    </div>
+
+
+					    <div style="
+						    display: flex;
+						    flex-direction: column;
+						">
+							<h4>Example Use Cases</h4>
+
+							<div class="flex-container">
+
+								<div  class="container-example">
+									<h5 class="text-bold">Bookly.io</h5>
+									<p>is a website which keeps a list of books that users have saved for reading later. Users can add books, mark books as in progress, and mark books as completed. Users can view the leaderboard where they are ranked based on the number of books they have read.</p>
+								</div>
+
+								<div class="container-example">
+									<h5 class="text-bold">Airportrr</h5>
+									<p>is an Apple Watch app where users can see how long it will take them to get through airport security. They press a button when they start standing in line, and press again when they are finished. This user data is aggregated to generate average wait times.</p>
+								</div>
+
+								<div class="container-example">
+									<h5 class="text-bold">Walk Helper</h5>
+									<p>is an iPhone app which tracks users’ steps per day. Users are reminded to go for a walk if they are not on target for the day. Users can view their steps over the past month.</p>
+		                        </div>
+	                        </div>
+						</div>
+										
+					</div>
+				</div>
+			</div>
+
+			
+		</div>
+
+
+		<!-- FOOTER -->
+		<div id="section-footer">
+			<ul class="section-nav" id="section-footer-links">
+				<li><a href="https://www.linkedin.com/in/joshuakcockrell" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+				<li><a href="https://www.github.com/joshuakcockrell" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
+				<li><a href="https://stackoverflow.com/users/4975772/joshuakcockrell?tab=profile" target="_blank"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a></li>
+				<li><a href="https://www.facebook.com/profile.php?id=100005024238675" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+				<li><a href="https://soundcloud.com/joshuakcockrell" target="_blank"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
+				<li><a href="https://open.spotify.com/artist/0T24zL5DjolHE3ssni0rdK" target="_blank"><i class="fa fa-spotify" aria-hidden="true"></i></a></li>
+			</ul>
+			<div id="section-footer-code">
+				This 100% custom website is open source. You can find <a class="link-underline" href="https://github.com/joshuakcockrell/site" target="_blank">the code</a> on GitHub
+			</div>
+			<i class="fa fa-diamond" id="icon-diamond" aria-hidden="true"></i>
+		</div>
+
+		<link async rel="stylesheet" href="css/main.css">
+		<link async rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-68565272-1', 'auto');
+			ga('send', 'pageview', location.pathname);
 		</script>
 
-        <!-- Fragment Shader -->
-        <script id='fxxragment-shader' type='x-shader/x-vertex'>
-            void main(){
-
-                gl_FragColor = vec4(1, 0, 0, 0.5);
-            }
-        </script>
-
-        <script id="fragment-shader" type="x-shader/x-fragment">
-			precision mediump float;
-			uniform vec4 u_color;
-			 
-			void main() {
-			   gl_FragColor = u_color;
-			}
-		</script>
-
-
-        <script src="js/boxes.js"></script>
 
 	</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

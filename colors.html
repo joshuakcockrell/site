@@ -2,51 +2,42 @@
 <html>
 	<head>
 		<title>Colors</title>
-		<meta name="description" content="">
 		<meta name="viewpoint" content="width=device-width, initial-scale=1">
 		<meta name="description" content="This is the description rite here.">
+        <meta charset="UTF-8">
 
-		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/main.css"> <!-- CSS before JS! -->
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-68565272-1', 'auto');
+            ga('send', 'pageview', location.pathname);
+        </script>
 
 	</head>
-	<style>
-		body {background-color:#3E474A;}
-	</style>
 
 	<!-- Body -->
-	<body>
 
-		<ul class="navigation">
-  			<li><a href="#">Home</a></li>
-  			<li><a href="#">About</a></li>
-  			<li><a href="#">Colors</a></li>
-  			<li><a href="#">Boxes</a></li>
-  			<li><a href="#">Projects</a></li>
-  			<li><a href="#">Contact</a></li>
-		</ul>
+	<body class="webgl-body">
 
-		<div id="section">
+		<!-- HEADER -->
+        <ul class="section-nav" id="section-header">
+            <li><a href="/">Home</a></li>
+            <li><a href="joshua_cockrell_resume.pdf" target="_blank">Resume</a></li>
+        </ul>
 
-			<h2>
-				Colors
-			</h2>
 
-			<canvas id='canvas' oncontextmenu='return false;'></canvas>
+		<canvas id='canvas'></canvas>
 
-			<p>
-				Welcome to the best website in the world.
-				<br>
-				<br>
-			</p>
 
-		</div> 
-
-		<!-- SHADERS -->
-		<!-- SHADERS -->
 		<!-- SHADERS -->
 
 		<!-- Vertex Shader -->
-		<script id='vertex-shader' type='x-shader/x-vertex'>
+        <script id='vertex-shader' type='x-shader/x-vertex'>
             attribute vec2 a_position;
             varying vec2 v_uv; //coming through the graphics card 
             void main() {
@@ -55,7 +46,6 @@
             }
         </script>
 
-        <!-- Fragment Shader -->
         <script id='fragment-shader' type='x-shader/x-vertex'>
             precision mediump float;
 
@@ -73,7 +63,8 @@
             }
         </script>
 
-        <script src="js/main.js"></script>
+
+        <script async="async" src="js/colors.js"></script>
 
 	</body>
 </html>

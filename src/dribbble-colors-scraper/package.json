@@ -1,0 +1,16 @@
+{
+  "name": "dribbble-color-search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon main.js || node main.js"
+  },
+  "author": "Josh Cockrell",
+  "license": "ISC",
+  "dependencies": {
+    "dribbble-colors": "0.0.1",
+    "request": "^2.74.0",
+    "scraperjs": "^1.2.0"
+  }
+}
