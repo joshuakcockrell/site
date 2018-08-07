@@ -115,6 +115,7 @@ a {
 
     background-image: linear-gradient(rgba(0, 0, 0, 0.6),
                                       rgba(0, 0, 0, 0.6)),url(../assets/profile_crop_min.jpg);
+    background-attachment: fixed;
 
     /*background-image: linear-gradient(rgba(0, 0, 0, 0.4),
                                       rgba(0, 0, 0, 0.4)),url(../assets/forest-3-small.jpeg);*/
@@ -169,6 +170,7 @@ a {
 #section-music {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../assets/music_1.jpg);
     background-position: center;
+    background-attachment: fixed;
     padding-top: 50px;
     justify-content: space-between;
 }
