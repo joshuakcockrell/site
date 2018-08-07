@@ -83,6 +83,8 @@ a {
     color: #F4F3F3;
 
     background-size: cover;
+    height: 100vh;
+    max-height: 1000px;
 }
 
 
@@ -147,13 +149,11 @@ a {
 
 #section-iphone {
     background-color: #121413;
-    height: 750px;
 }
 
 #section-web {
     color: #121413;
     background-color: #F3F3F3;
-    height: 750px;
 }
 
 #section-stars {
@@ -171,7 +171,6 @@ a {
     background-position: center;
     padding-top: 50px;
     justify-content: space-between;
-    height: 700px;
 }
 
 #section-footer {
