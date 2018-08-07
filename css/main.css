@@ -172,9 +172,13 @@ a {
 }
 
 #section-footer {
-    background-color: #141414;
-    padding-top: 300px;
+    background-color: #222;
+    border: solid 1px #444;
+    border-style: none;
+    border-top-style: solid;
+    padding-top: 100px;
     padding-bottom: 50px;
+    color: #777;
 }
 
 #section-footer-links {
@@ -186,7 +190,6 @@ a {
 
 #section-footer-code {
     margin: 20px;
-    color: #555;
 }
 
 .flex-vert {
@@ -257,7 +260,6 @@ a {
 
 #section-footer-links a {
     text-decoration: none;
-    color: #555;
     font-size: 25px;
     font-weight: 300;
     display: block;
@@ -275,7 +277,7 @@ a {
 }
 
 #section-footer-links a:hover {
-    color: #777;
+    color: #aaa;
 }
 
 .container-iphone {
