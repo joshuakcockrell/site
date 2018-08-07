@@ -83,8 +83,7 @@ a {
     color: #F4F3F3;
 
     background-size: cover;
-    height: 100vh;
-    max-height: 1000px;
+    min-height: 100vh;
 }
 
 
