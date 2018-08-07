@@ -173,6 +173,8 @@ a {
 
 #section-footer {
     background-color: #141414;
+    padding-top: 300px;
+    padding-bottom: 50px;
 }
 
 #section-footer-links {
@@ -183,7 +185,7 @@ a {
 }
 
 #section-footer-code {
-    margin: 10px;
+    margin: 20px;
     color: #555;
 }
 
