@@ -314,6 +314,7 @@ a {
     border-style: solid;
     border-width: 1px;
     border-color: #ddd;
+    border-radius: 10px;
 
     box-shadow: 0 0.05em 0.15em 0 rgba(0, 0, 0, 0.05);
     transition: box-shadow 0.2s ease;
@@ -327,12 +328,16 @@ a {
     width: 300px;
     height: 175px;
     object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .container-project video {
     width: 300px;
     height: 175px;
     object-fit: fill;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .title-project {
