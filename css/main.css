@@ -153,9 +153,11 @@ a {
     border-radius: 15px;
     padding-left: 2em;
     padding-right: 2em;
+    margin-bottom: 20px;
     border-color: rgb(255,255,255,0.6);
     background-color: rgb(255,255,255,0.1);
     color: white;
+    max-width: 60%;
 }
 
 #section-iphone {
@@ -390,6 +392,11 @@ a {
         font-size: 300%;
     }
 
+    #section-landing {
+        height: 500px;
+        justify-content: flex-end;
+    }
+
     #section-footer-links {
         -webkit-flex-flow: column wrap;
         flex-flow: column wrap;
@@ -402,6 +409,11 @@ a {
 
     .section-nav li:last-of-type a {
         border-bottom: none;
+    }
+
+    #section-landing {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6),
+                                          rgba(0, 0, 0, 0.6)),url(../assets/profile_crop_min_mobile.jpg);
     }
 }
 
@@ -443,29 +455,5 @@ a {
     position: fixed; 
     top: 82px; 
     right: 0px;
-}
-
-/* Three images as a group */
-.group-iphone {
-    display: flex;
-    justify-content: space-around; /* all in a row */
-    align-items: center;
-    height: 425px;
-    width: 25%;
-
-    animation-name: slide-left;
-    animation-duration: 15s;
-    animation-iteration-count: infinite;
-    position: relative;
-}
-
-/* iPhone photo animation */
-@keyframes slide-left {
-    0%   {left: 37.5%;}
-    15%  {left: 12.5%;}
-    45%  {left: 12.5%;}
-    60%  {left: -12.5%;}
-    92%  {left: -12.5%;}
-    100% {left: -37.5%;}
 }
 
