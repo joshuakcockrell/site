@@ -86,8 +86,6 @@ a {
     min-height: 100vh;
 }
 
-
-
 /* All nav bars */
 .section-nav {
     max-height: 60px;
@@ -95,6 +93,13 @@ a {
     margin: 0;
     display: flex;
     justify-content: flex-start;
+}
+
+.nav-button {    
+    margin: 0 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #group-page {
@@ -216,6 +221,10 @@ a {
     display: flex;
 }
 
+#image-web-dev {
+    max-height: 600px;
+}
+
 .image-iphone {
     max-height: 100%;
     max-width: 30%;
@@ -257,9 +266,7 @@ a {
     text-decoration: none;
     min-width: 70px;
     display: block;
-    padding: 1.2em;
     color: #CCCCCC;
-
     transition: color 0.2s ease;
 }
 
@@ -365,6 +372,10 @@ a {
 
 /* Small Screens */
 @media all and (max-width: 750px) {
+
+    .section-main {
+        min-height: 500px; 
+    }
 
 
     #section-header {
