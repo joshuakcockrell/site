@@ -134,7 +134,7 @@ a {
                                       rgba(0, 0, 0, 0.4)),url(https://unsplash.it/g/1920/1080?random);
 */
                         
-    background-position: center;
+    /*background-position: center;*/
     /*height: 100vh;*/
     color: #FFFFFF;
     background-color: #7f8c8d;
@@ -162,6 +162,7 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
 }
 
 .background-img {
