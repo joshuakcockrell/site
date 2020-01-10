@@ -87,7 +87,7 @@ a {
     color: #F4F3F3;
 
     background-size: cover;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
 }
 
 /* All nav bars */
@@ -123,9 +123,9 @@ a {
 #section-landing {
     z-index: 3;
 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6),
+    /*background-image: linear-gradient(rgba(0, 0, 0, 0.6),
                                       rgba(0, 0, 0, 0.6)),url(../assets/profile_crop_min.jpg);
-    background-attachment: fixed;
+    background-attachment: fixed;*/
 
     /*background-image: linear-gradient(rgba(0, 0, 0, 0.4),
                                       rgba(0, 0, 0, 0.4)),url(../assets/forest-3-small.jpeg);*/
@@ -135,7 +135,7 @@ a {
 */
                         
     background-position: center;
-    height: 100vh;
+    /*height: 100vh;*/
     color: #FFFFFF;
     background-color: #7f8c8d;
 }
@@ -158,6 +158,14 @@ a {
     background-color: rgb(255,255,255,0.1);
     color: white;
     max-width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.background-img {
+    width: 100%;
 }
 
 #section-iphone {
@@ -167,6 +175,7 @@ a {
 #section-web {
     color: #ccc;
     background-color: #000;
+    padding: 50px 0;
 }
 
 #section-stars {
@@ -380,7 +389,7 @@ a {
 @media all and (max-width: 750px) {
 
     .section-main {
-        min-height: 500px; 
+        /*min-height: 500px; */
     }
 
 
@@ -393,7 +402,6 @@ a {
     }
 
     #section-landing {
-        height: 500px;
         justify-content: flex-end;
     }
 
@@ -411,9 +419,8 @@ a {
         border-bottom: none;
     }
 
-    #section-landing {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6),
-                                          rgba(0, 0, 0, 0.6)),url(../assets/profile_crop_min_mobile.jpg);
+    .box-title {
+        top: 75%;
     }
 }
 
