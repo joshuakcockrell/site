@@ -122,20 +122,7 @@ a {
 
 #section-landing {
     z-index: 3;
-
-    /*background-image: linear-gradient(rgba(0, 0, 0, 0.6),
-                                      rgba(0, 0, 0, 0.6)),url(../assets/profile_crop_min.jpg);
-    background-attachment: fixed;*/
-
-    /*background-image: linear-gradient(rgba(0, 0, 0, 0.4),
-                                      rgba(0, 0, 0, 0.4)),url(../assets/forest-3-small.jpeg);*/
-
-    /*background-image: linear-gradient(rgba(0, 0, 0, 0.4),
-                                      rgba(0, 0, 0, 0.4)),url(https://unsplash.it/g/1920/1080?random);
-*/
-                        
-    /*background-position: center;*/
-    /*height: 100vh;*/
+    background-color: #f5f5f5;
     color: #FFFFFF;
     background-color: #7f8c8d;
 }
@@ -196,6 +183,7 @@ a {
     background-attachment: fixed;
     padding-top: 50px;
     justify-content: space-between;
+    height: 100vh;
 }
 
 #section-footer {
