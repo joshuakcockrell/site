@@ -317,6 +317,16 @@ a {
     margin: 0.75em;
 }
 
+.container-projects {
+    width: 100%;
+    display: flex;
+    max-width: 1180px;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .container-project {
     background-color: #FBFBFB;
     margin: 5px;
