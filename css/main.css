@@ -286,6 +286,17 @@ height: 45px;
     height: 100vh;
 }
 
+/* Scrolling background image sections on phone */
+@media (max-width: 750px) {
+    #section-music {
+        background-attachment: scroll;
+    }
+
+    #section-youtube {
+        background-attachment: scroll;
+    }
+}
+
 #section-footer {
     background-color: #222;
     border: solid 1px #444;
