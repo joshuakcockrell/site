@@ -7,6 +7,7 @@
 		<meta charset="UTF-8">
 		<link rel="icon" href="favicon.ico">
 
+
 		<meta property="og:type" content="profile">
 		<meta property="og:title" content="Josh Cockrell">
 		<meta property="og:url" content="http://joshcockrell.com">
@@ -20,6 +21,7 @@
 			function numberWithCommas(x) {
 			    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			}
+
 
 			// Page Load
 			const subscriberCountUrl = "https://www.googleapis.com/youtube/v3/channels?part=statistics&fields=items/statistics/subscriberCount&id=UCHzWIPEh3In0jdBPp9hgGOg&key=AIzaSyDNJMuAJYhw-vBbw6jl6-wWrPwbdXSeYng";
@@ -44,11 +46,13 @@
 
 		<!-- HEADER -->
 		<ul class="section-nav" id="section-header">
+
   			<li class="nav-button"><a href="/">Home</a></li>
   			<li class="nav-button"><a href="/#section-projects">Projects</a></li>
   			<!-- <li><a href="/#section-hire">Hire Me</a></li> -->
   			<li class="nav-button"><a href="resume" target="_blank">Resume</a></li>
   			<li class="nav-button"><a href="resume-template" target="_blank">Resume Template</a></li>
+
   			<li class="container-spotify">
 				<iframe src="https://embed.spotify.com/follow/1/?uri=spotify:artist:0T24zL5DjolHE3ssni0rdK&amp;size=detail&amp;theme=dark&amp;show-count=0" scrolling="no" frameborder="0" style="border:none;overflow:hidden;width: 170px;" allowtransparency="true"></iframe>
 			</li>
@@ -82,6 +86,7 @@
 		</div>
 
 		<div id="group-page">
+
 			<div class="section-main flex-vert" id="section-iphone">
 				<h2 id="title-ios" class="title-section">iPhone Developer</h2>
 
@@ -118,7 +123,6 @@
 					</div>
 				</div>
 
-
 			</div>
 
 			<div class="section-main flex-vert" id="section-web">
@@ -127,6 +131,7 @@
 				<img id="image-web-dev" class="image-web" src="assets/tesla_web_mock_small.png">
 			</div>
 
+
 			<div class="section-main flex-vert" id="section-music">
 				<h2>Electronic Music Producer</h2>
 				<!-- <iframe class="player-spotify" src="https://embed.spotify.com/?uri=spotify%3Aartist%3A0T24zL5DjolHE3ssni0rdK" frameborder="0" allowtransparency="true"></iframe> -->
@@ -134,9 +139,6 @@
 
 				<!-- <iframe class="player-spotify" src="https://embed.spotify.com/?uri=spotify:album:6x0Z1Dt7pRilHuJ4VRHDJP" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> -->
 			</div>
-
-
-
 
 			<div class="section-main flex-vert section-projects" id="section-work">
 
@@ -149,25 +151,30 @@
 						<h3 class="title-project">Robinhood</h3>
 					</a>
 
+
 					<a target="_blank" href="https://tesla.com/" class="container-project">
 						<img src="./assets/work/logo-tesla.jpg">
 						<h3 class="title-project">Tesla</h3>
 					</a>
+
 
 					<a target="_blank" href="https://twitter.com/" class="container-project">
 						<img src="./assets/work/logo-twitter.jpg">
 						<h3 class="title-project">Twitter</h3>
 					</a>
 
+
 					<a target="_blank" href="http://www.adobe.com/" class="container-project">
 						<img src="./assets/work/logo-adobe.jpg">
 						<h3 class="title-project">Adobe</h3>
 					</a>
 
+
 					<a target="_blank" href="https://www.microsoft.com/en-us/cloud-platform/windows-server" class="container-project">
 						<img src="./assets/work/logo-microsoft.jpg">
 						<h3 class="title-project">Microsoft Windows Server</h3>
 					</a>
+
 
 					<a target="_blank" href="https://www.microsoft.com/en-us/windows/microsoft-edge" class="container-project">
 						<img src="./assets/work/logo-windows10.jpg">
@@ -213,10 +220,12 @@
 	  					<h3 class="title-project">WebGL Particle Effects</h3>
 					</a>
 
+
 					<a target="_blank" href="https://github.com/joshuakcockrell/fracas" class="container-project">
 						<img src="./assets/projects/fractal.jpg">
 						<h3 class="title-project">Python Fractal Generator</h3>
 					</a>
+
 
 					<a target="_blank" href="colors.html" class="container-project">
 						<video autoplay="" loop="">
@@ -234,13 +243,13 @@
 	  					<h3 class="title-project">Color Tower Defense</h3>
 					</a>
 
-					<!-- <a target="_blank" href="http://paletteship.com/" class="container-project">
+					<a target="_blank" href="http://paletteship.com/" class="container-project">
 						<video autoplay="" loop="">
 						  	<source src="./assets/projects/paletteship.mp4" type="video/mp4">
 							Your browser does not support the video tag.
 						</video>
 	  					<h3 class="title-project">Color Palette Generator</h3>
-					</a> -->
+					</a>
 
 					<a target="_blank" href="http://www.seattletimes.com/business/microsoft/microsoft-hackers-put-tech-to-good-use-for-local-nonprofits/" class="container-project">
 						<img src="./assets/projects/seattle.jpg">
@@ -266,7 +275,7 @@
 			</div>
 
 
-			<!-- <div class="section-main flex-vert" id="section-hire" style="padding: 40px;">
+			<div class="section-main flex-vert" id="section-hire" style="padding: 40px;">
 				<div class="content-max">
 
 					<h2 class="title-section">Hire Me</h2>
@@ -298,6 +307,7 @@
 									<li>Deployed to Amazon Web Services with free scaling for first 100K users</li>
 									<li>New user account sign up/login endpoints</li>
 									<li>Backend secured through HTTPS</li>
+
 									<li>Website secured through HTTPS</li>
 									<li>Includes steps for your developers to make changes</li>
 									<li>Automatic backend deployment and build system using AWS CodeDeploy</li>
@@ -306,6 +316,7 @@
 								</ul>
 						    </div>
 					    </div>
+
 
 
 					    <div style="
@@ -330,15 +341,20 @@
 									<h5 class="text-bold">Walk Helper</h5>
 									<p>is an iPhone app which tracks users’ steps per day. Users are reminded to go for a walk if they are not on target for the day. Users can view their steps over the past month.</p>
 		                        </div>
+
 	                        </div>
+
 						</div>
 										
 					</div>
+
 				</div>
-			</div> -->
+
+			</div>
 
 			
 		</div>
+
 
 
 		<!-- FOOTER -->
@@ -360,6 +376,7 @@
 		<link async rel="stylesheet" href="css/main.css">
 		<link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
 		<!-- <link async rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
 
 
 		<script>
