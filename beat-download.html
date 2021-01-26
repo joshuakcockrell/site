@@ -35,17 +35,20 @@
 		ga('send', 'pageview', location.pathname + '?beat=' + beatNum);
 
 
-		// // Set refresh link for direct download
-		// var meta = document.createElement('meta');
-		// meta.httpEquiv = "refresh";
-		// meta.content = "0; url=https://joshcockrell.com/assets/beats/beat_" + beatNum + ".wav";
-		// document.getElementsByTagName('head')[0].appendChild(meta);
+		// Set refresh link for direct download
+		var meta = document.createElement('meta');
+		meta.httpEquiv = "refresh";
+		meta.content = "0; url=https://joshcockrell.com/assets/beats/beat_" + beatNum + ".wav";
+		document.getElementsByTagName('head')[0].appendChild(meta);
+
+		document.querySelector("a").href = "http://joshcockrell.com/assets/beats/beat_" + "beatNum" + ".wav"
+
 	</script>
 
 	<body>
 		<h1>Beat Download</h1>
 		<p>Download should begin automatically. Or 
-		<a href="http://joshcockrell.com/assets/beats/beat_131.wav" download>click here.</a>
+		<a href="http://joshcockrell.com/assets/beats/beat_###.wav" download>click here.</a>
 	</body>
 </html>
 
